@@ -1,148 +1,770 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
-<link rel="icon" href="assets/images/favicon.png" type="image/png">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Segoe UI',Helvetica,Arial,'PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;background:#030014;color:#fff;overflow-x:hidden;line-height:1.6}
-a{text-decoration:none;color:inherit}
-::selection{color:#fff;background:#4a428b}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:#030014}
-::-webkit-scrollbar-thumb{background:#7000FF;border-radius:3px}
-.nav-wrapper{position:sticky;top:0;left:0;right:0;z-index:99999;display:flex;justify-content:center;pointer-events:none}
-.nav-pill{display:flex;align-items:center;gap:20px;padding:10px 24px;background:rgba(15,5,40,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:40px;backdrop-filter:blur(20px);pointer-events:auto;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
-.nav-pill a{padding:4px 12px;color:rgba(244,240,255,0.8);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;border-radius:20px}
-.nav-pill a:hover,.nav-pill a.active{color:#fff;background:rgba(112,0,255,0.25)}
-.nav-spacer{height:0px}
-.page{animation:fadeIn 0.4s ease both}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-.section{padding:80px 0}.section-alt{background:rgba(117,73,255,0.02)}
-.section-title{font-size:32px;font-weight:600;text-align:center;color:#fff;margin-bottom:12px;letter-spacing:1px}
-.section-subtitle{text-align:center;color:rgba(255,255,255,0.55);font-size:15px;max-width:650px;margin:0 auto 40px;letter-spacing:1px}
-.hero{min-height:50vh;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(117,73,255,0.25) 0%,transparent 60%);z-index:0}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(117,73,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(117,73,255,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
-.hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;padding:0 24px}
-.hero h1{font-size:44px;font-weight:600;line-height:1.2;margin-bottom:16px;letter-spacing:2px}
-.hero h1 .gradient-text{background:linear-gradient(180deg,#FFFFFF 23%,rgba(255,255,255,0.70) 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:rgba(255,255,255,0.55);font-size:16px;max-width:600px;margin:0 auto;letter-spacing:1px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:28px 24px;transition:all 0.3s ease}
-.card:hover{transform:translateY(-4px);border-color:rgba(112,0,255,0.3)}
-.card-icon{width:48px;height:48px;border-radius:12px;background:rgba(112,0,255,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
-.card h3{font-size:17px;font-weight:500;margin-bottom:10px;color:#F4F0FF}
-.card p{font-size:14px;color:rgba(155,150,176,0.8);line-height:1.7}
-.card ul{list-style:none;margin-top:10px}
-.card ul li{padding:5px 0;padding-left:18px;position:relative;color:rgba(155,150,176,0.9);font-size:13px}
-.card ul li::before{content:'▸';position:absolute;left:0;color:#7000FF}
-.service-block{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-bottom:40px;padding:36px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px}
-.service-block h3{font-size:22px;font-weight:600;margin-bottom:12px;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.service-block p{color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:10px;font-size:14px}
-.service-block ul{list-style:none}
-.service-block ul li{padding:6px 0;padding-left:22px;position:relative;color:rgba(255,255,255,0.75);font-size:13px}
-.service-block ul li::before{content:'✓';position:absolute;left:0;color:#7000FF;font-weight:700}
-.tag{display:inline-block;padding:2px 10px;border-radius:4px;background:rgba(112,0,255,0.12);color:#7000FF;font-size:11px;margin-bottom:10px;letter-spacing:1px}
-img.service-img{border-radius:12px;border:1px solid rgba(255,255,255,0.06);width:100%;height:auto;transition:transform 0.3s ease}
-img.service-img:hover{transform:scale(1.02)}
-.process-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.process-step{text-align:center;padding:16px 8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;position:relative}
-.process-step .num{width:28px;height:28px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-weight:700;font-size:12px}
-.process-step h4{font-size:12px;font-weight:500;color:#F4F0FF;margin-bottom:4px}
-.process-step p{font-size:11px;color:#9B96B0;line-height:1.3}
-.process-step::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:rgba(112,0,255,0.25);font-size:16px}
-.process-step:last-child::after{display:none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-@keyframes animRevealUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes animRevealVertical{0%{clip-path:inset(0 0 100%);opacity:0}100%{clip-path:inset(0);opacity:1}}
-@keyframes animFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.ql-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.25,.1,.25,1),transform .7s cubic-bezier(.25,.1,.25,1)}
-.ql-reveal.show{opacity:1;transform:translateY(0)}
-.ql-float{animation:animFloat 2.6s ease-in-out infinite}
-.ql-d1{transition-delay:.1s}.ql-d2{transition-delay:.2s}.ql-d3{transition-delay:.3s}.ql-d4{transition-delay:.4s}.ql-d5{transition-delay:.5s}.ql-d6{transition-delay:.6s}
+    html {
+      scroll-behavior: smooth
+    }
 
-.footer{border-top:1px solid rgba(255,255,255,0.06);padding:48px 0 24px}
-.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
-.footer-brand .logo-text{font-size:17px;font-weight:600;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;display:block}
-.footer-brand p{color:#9B96B0;font-size:13px;line-height:1.6;max-width:280px}
-.footer h4{font-size:15px;font-weight:500;margin-bottom:14px;color:#F4F0FF}
-.footer a{display:block;color:#9B96B0;font-size:13px;padding:3px 0;transition:color 0.3s ease}
-.footer a:hover{color:#b2a0ff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-bottom p{color:#6B6680;font-size:12px}
-@media(max-width:1024px){
-  .process-grid{grid-template-columns:repeat(3,1fr)}
-  .process-step:nth-child(3)::after{display:block}
-  .process-step:nth-child(6)::after{display:none}
-  .footer-inner{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-  .nav-pill{gap:10px;padding:8px 16px;flex-wrap:wrap;justify-content:center}
-  .nav-pill a{font-size:12px;padding:3px 8px}.hero h1{font-size:28px}
-  .service-block,.grid-2,.grid-3{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr}.process-step::after{display:none}
-  .section{padding:48px 0}.section-title{font-size:22px}.footer-inner{grid-template-columns:1fr}
-}
-</style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+      background: #030014;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ::selection {
+      color: #fff;
+      background: #4a428b
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #030014
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #7000FF;
+      border-radius: 3px
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      pointer-events: none
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 24px;
+      background: rgba(15, 5, 40, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 40px;
+      backdrop-filter: blur(20px);
+      pointer-events: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
+    }
+
+    .nav-pill a {
+      padding: 4px 12px;
+      color: rgba(244, 240, 255, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border-radius: 20px
+    }
+
+    .nav-pill a:hover,
+    .nav-pill a.active {
+      color: #fff;
+      background: rgba(112, 0, 255, 0.25)
+    }
+
+    .nav-spacer {
+      height: 0px
+    }
+
+    .page {
+      animation: fadeIn 0.4s ease both
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .section {
+      padding: 80px 0
+    }
+
+    .section-alt {
+      background: rgba(117, 73, 255, 0.02)
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 1px
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 15px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      letter-spacing: 1px
+    }
+
+    .hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(117, 73, 255, 0.25) 0%, transparent 60%);
+      z-index: 0
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(117, 73, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(117, 73, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: 2px
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 23%, rgba(255, 255, 255, 0.70) 95%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      letter-spacing: 1px
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.3s ease
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112, 0, 255, 0.3)
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(112, 0, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #F4F0FF
+    }
+
+    .card p {
+      font-size: 14px;
+      color: rgba(155, 150, 176, 0.8);
+      line-height: 1.7
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 10px
+    }
+
+    .card ul li {
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+      color: rgba(155, 150, 176, 0.9);
+      font-size: 13px
+    }
+
+    .card ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #7000FF
+    }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 40px;
+      padding: 36px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px
+    }
+
+    .service-block h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .service-block p {
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.8;
+      margin-bottom: 10px;
+      font-size: 14px
+    }
+
+    .service-block ul {
+      list-style: none
+    }
+
+    .service-block ul li {
+      padding: 6px 0;
+      padding-left: 22px;
+      position: relative;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13px
+    }
+
+    .service-block ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #7000FF;
+      font-weight: 700
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      background: rgba(112, 0, 255, 0.12);
+      color: #7000FF;
+      font-size: 11px;
+      margin-bottom: 10px;
+      letter-spacing: 1px
+    }
+
+    img.service-img {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease
+    }
+
+    img.service-img:hover {
+      transform: scale(1.02)
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 16px 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      position: relative
+    }
+
+    .process-step .num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(112, 0, 255, 0.2);
+      color: #7000FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-weight: 700;
+      font-size: 12px
+    }
+
+    .process-step h4 {
+      font-size: 12px;
+      font-weight: 500;
+      color: #F4F0FF;
+      margin-bottom: 4px
+    }
+
+    .process-step p {
+      font-size: 11px;
+      color: #9B96B0;
+      line-height: 1.3
+    }
+
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(112, 0, 255, 0.25);
+      font-size: 16px
+    }
+
+    .process-step:last-child::after {
+      display: none
+    }
+
+    @keyframes animRevealUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes animRevealVertical {
+      0% {
+        clip-path: inset(0 0 100%);
+        opacity: 0
+      }
+
+      100% {
+        clip-path: inset(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes animFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-6px)
+      }
+    }
+
+    .ql-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.25, .1, .25, 1), transform .7s cubic-bezier(.25, .1, .25, 1)
+    }
+
+    .ql-reveal.show {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .ql-float {
+      animation: animFloat 2.6s ease-in-out infinite
+    }
+
+    .ql-d1 {
+      transition-delay: .1s
+    }
+
+    .ql-d2 {
+      transition-delay: .2s
+    }
+
+    .ql-d3 {
+      transition-delay: .3s
+    }
+
+    .ql-d4 {
+      transition-delay: .4s
+    }
+
+    .ql-d5 {
+      transition-delay: .5s
+    }
+
+    .ql-d6 {
+      transition-delay: .6s
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 48px 0 24px
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px
+    }
+
+    .footer-brand .logo-text {
+      font-size: 17px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: block
+    }
+
+    .footer-brand p {
+      color: #9B96B0;
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 280px
+    }
+
+    .footer h4 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: #F4F0FF
+    }
+
+    .footer a {
+      display: block;
+      color: #9B96B0;
+      font-size: 13px;
+      padding: 3px 0;
+      transition: color 0.3s ease
+    }
+
+    .footer a:hover {
+      color: #b2a0ff
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-bottom p {
+      color: #6B6680;
+      font-size: 12px
+    }
+
+    @media(max-width:1024px) {
+      .process-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .process-step:nth-child(3)::after {
+        display: block
+      }
+
+      .process-step:nth-child(6)::after {
+        display: none
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-pill {
+        gap: 10px;
+        padding: 8px 16px;
+        flex-wrap: wrap;
+        justify-content: center
+      }
+
+      .nav-pill a {
+        font-size: 12px;
+        padding: 3px 8px
+      }
+
+      .hero h1 {
+        font-size: 28px
+      }
+
+      .service-block,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr
+      }
+
+      .process-step::after {
+        display: none
+      }
+
+      .section {
+        padding: 48px 0
+      }
+
+      .section-title {
+        font-size: 22px
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
 </head>
+
 <body class="page">
-<div class="nav-wrapper"><div class="nav-pill"><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="services.html" class="active">数据服务</a><a href="solutions.html">解决方案</a><a href="technology.html">技术与保障</a><a href="index.html#contact">联系我们</a></div></div>
-<div class="nav-spacer"></div>
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content ql-reveal">
-    <h1><span class="gradient-text">数据服务</span></h1>
-    <p>覆盖全模态、全流程的 AI 数据标注与采集服务</p>
+  <div class="nav-wrapper">
+    <div class="nav-pill"><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="services.html"
+        class="active">数据服务</a><a href="solutions.html">解决方案</a><a href="technology.html">技术与保障</a><a
+        href="index.html#contact">联系我们</a></div>
   </div>
-</section>
+  <div class="nav-spacer"></div>
 
-<section class="section">
-  <div class="container">
-    <div class="service-block ql-reveal">
-      <div><span class="tag">CORE SERVICE</span><h3>数据标注服务</h3><p>覆盖 2D/3D/4D 标注、语音转写、文本分类、视频标注等全模态类型。依托自研平台与三级质控体系，确保交付数据准确率稳定在 99.5% 以上。</p><ul><li>目标检测（画框）、语义分割、关键点标记</li><li>3D 目标检测、激光雷达标注、4D 车道线标注</li><li>语音转写、情绪识别、文本分类、行为识别</li><li>RLHF 标注、模型评估与排序</li></ul></div>
-      <div><img src="assets/ppt_images/slide10_18.png" alt="数据标注" class="service-img" loading="lazy"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px"><div class="card" style="padding:16px"><h3 style="font-size:14px">2D 图像标注</h3><p style="font-size:12px">目标检测、语义分割、关键点标记</p></div><div class="card" style="padding:16px"><h3 style="font-size:14px">3D 点云标注</h3><p style="font-size:12px">3D 目标检测、激光雷达标注</p></div></div></div>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content ql-reveal">
+      <h1><span class="gradient-text">数据服务</span></h1>
+      <p>覆盖全模态、全流程的 AI 数据标注与采集服务</p>
     </div>
-    <div class="service-block ql-reveal ql-d1">
-      <div><span class="tag">CORE SERVICE</span><h3>数据采集服务</h3><p>覆盖全国的多语言数据采集网络，在石家庄、唐山、新疆、内蒙等地设立专业采集与标注基地。支持移动端一键采集、实时上传、在线审核。</p><ul><li>移动端一键采集、实时上传、在线审核</li><li>覆盖多语种及少数民族语言的采集网络</li><li>四大基地协同交付</li><li>支持图片、语音、视频、文本多种类型</li></ul></div>
-      <div><img src="assets/ppt_images/slide20_20.png" alt="采集平台" class="service-img" loading="lazy"><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px"><div class="card" style="padding:16px"><h3 style="font-size:14px">多场景采集</h3><p style="font-size:12px">车载语音、商务对话、智能家居等</p></div><div class="card" style="padding:16px"><h3 style="font-size:14px">多语言采集</h3><p style="font-size:12px">中文方言、少数民族语言、小语种</p></div></div></div>
-    </div>
-    <div class="service-block ql-reveal ql-d2">
-      <div><span class="tag">CORE SERVICE</span><h3>大模型数据服务</h3><p>从 RLHF、问答对生成到模型评估、安全评测等全流程一站式解决方案，覆盖大模型训练数据（SFT）、BENCHMARK 数据、人类反馈数据等多维需求。</p><ul><li>大模型训练数据（SFT）生产</li><li>模型评测与 BENCHMARK 数据构建</li><li>RLHF 人类反馈数据标注</li><li>Agent 能力数据生产</li></ul></div>
-      <div><img src="assets/ppt_images/slide09_35.png" alt="大模型数据" class="service-img" loading="lazy"></div>
-    </div>
-    <div class="service-block ql-reveal ql-d3">
-      <div><span class="tag">CORE SERVICE</span><h3>内容审核 &amp; AI 视频/动漫</h3><p>通过 AI 模型预审 + 人工复核双重保障机制，高效识别违规内容。支持多种 AI 视频/动漫风格生成，为互联网企业提供虚拟数字人、AR/VR、动画与游戏等数据支持。</p><ul><li>AI 模型预审 + 人工复核双重保障</li><li>快速响应，7×24 小时在线，多基地联动交付</li><li>AI 视频风格迁移与特效生成</li><li>虚拟数字人与 AR/VR 场景数据</li></ul></div>
-      <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" loading="lazy"></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="section-title ql-reveal">标准化服务流程</h2>
-    <p class="section-subtitle ql-reveal ql-d1">需求对接 → 方案制定 → 试标验收 → 专项培训 → 批量标注 → 三级质检 → 交付复盘</p>
-    <div class="process-grid">
-      <div class="process-step ql-reveal ql-d1"><div class="num">01</div><h4>需求对接</h4><p>深入理解项目需求</p></div>
-      <div class="process-step ql-reveal ql-d2"><div class="num">02</div><h4>方案制定</h4><p>定制标注规范方案</p></div>
-      <div class="process-step ql-reveal ql-d3"><div class="num">03</div><h4>试标验收</h4><p>小批量试标验证</p></div>
-      <div class="process-step ql-reveal ql-d4"><div class="num">04</div><h4>专项培训</h4><p>团队技能专项培训</p></div>
-      <div class="process-step ql-reveal ql-d5"><div class="num">05</div><h4>批量标注</h4><p>规模化生产质检</p></div>
-      <div class="process-step ql-reveal ql-d6"><div class="num">06</div><h4>交付复盘</h4><p>交付与复盘优化</p></div>
+  <section class="section">
+    <div class="container">
+      <div class="service-block ql-reveal">
+        <div><span class="tag">CORE SERVICE</span>
+          <h3>数据标注服务</h3>
+          <p>覆盖 2D/3D/4D 标注、语音转写、文本分类、视频标注等全模态类型。依托自研平台与三级质控体系，确保交付数据准确率稳定在 99.5% 以上。</p>
+          <ul>
+            <li>目标检测（画框）、语义分割、关键点标记</li>
+            <li>3D 目标检测、激光雷达标注、4D 车道线标注</li>
+            <li>语音转写、情绪识别、文本分类、行为识别</li>
+            <li>RLHF 标注、模型评估与排序</li>
+          </ul>
+        </div>
+        <div><img src="assets/ppt_images/slide10_18.png" alt="数据标注" class="service-img" loading="lazy">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px">2D 图像标注</h3>
+              <p style="font-size:12px">目标检测、语义分割、关键点标记</p>
+            </div>
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px">3D 点云标注</h3>
+              <p style="font-size:12px">3D 目标检测、激光雷达标注</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-block ql-reveal ql-d1">
+        <div><span class="tag">CORE SERVICE</span>
+          <h3>数据采集服务</h3>
+          <p>覆盖全国的多语言数据采集网络，在石家庄、唐山、新疆、内蒙等地设立专业采集与标注基地。支持移动端一键采集、实时上传、在线审核。</p>
+          <ul>
+            <li>移动端一键采集、实时上传、在线审核</li>
+            <li>覆盖多语种及少数民族语言的采集网络</li>
+            <li>四大基地协同交付</li>
+            <li>支持图片、语音、视频、文本多种类型</li>
+          </ul>
+        </div>
+        <div><img src="assets/ppt_images/slide20_20.png" alt="采集平台" class="service-img" loading="lazy">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px">多场景采集</h3>
+              <p style="font-size:12px">车载语音、商务对话、智能家居等</p>
+            </div>
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px">多语言采集</h3>
+              <p style="font-size:12px">中文方言、少数民族语言、小语种</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-block ql-reveal ql-d2">
+        <div><span class="tag">CORE SERVICE</span>
+          <h3>大模型数据服务</h3>
+          <p>从 RLHF、问答对生成到模型评估、安全评测等全流程一站式解决方案，覆盖大模型训练数据（SFT）、BENCHMARK 数据、人类反馈数据等多维需求。</p>
+          <ul>
+            <li>大模型训练数据（SFT）生产</li>
+            <li>模型评测与 BENCHMARK 数据构建</li>
+            <li>RLHF 人类反馈数据标注</li>
+            <li>Agent 能力数据生产</li>
+          </ul>
+        </div>
+        <div><img src="assets/ppt_images/slide09_35.png" alt="大模型数据" class="service-img" loading="lazy"></div>
+      </div>
+      <div class="service-block ql-reveal ql-d3">
+        <div><span class="tag">CORE SERVICE</span>
+          <h3>内容审核 &amp; AI 视频/动漫</h3>
+          <p>通过 AI 模型预审 + 人工复核双重保障机制，高效识别违规内容。支持多种 AI 视频/动漫风格生成，为互联网企业提供虚拟数字人、AR/VR、动画与游戏等数据支持。</p>
+          <ul>
+            <li>AI 模型预审 + 人工复核双重保障</li>
+            <li>快速响应，7×24 小时在线，多基地联动交付</li>
+            <li>AI 视频风格迁移与特效生成</li>
+            <li>虚拟数字人与 AR/VR 场景数据</li>
+          </ul>
+        </div>
+        <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" loading="lazy"></div>
+      </div>
     </div>
-    <div style="margin-top:24px;text-align:center"><img src="assets/ppt_images/slide22_11.png" alt="SOP流程" class="service-img ql-reveal" style="max-width:500px;display:inline-block" loading="lazy"></div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-text">清珞未来</span><p>AI数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p></div><div><h4>数据服务</h4><a href="services.html">数据标注服务</a><a href="services.html">数据采集服务</a><a href="services.html">大模型数据服务</a><a href="services.html">内容审核服务</a></div><div><h4>解决方案</h4><a href="solutions.html">智能驾驶</a><a href="solutions.html">大语言模型</a><a href="solutions.html">智慧医疗</a><a href="solutions.html">智慧安防</a></div><div><h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">技术与保障</a><a href="index.html#contact">联系我们</a></div></div><div class="footer-bottom"><p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p></div></div></footer>
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title ql-reveal">标准化服务流程</h2>
+      <p class="section-subtitle ql-reveal ql-d1">需求对接 → 方案制定 → 试标验收 → 专项培训 → 批量标注 → 三级质检 → 交付复盘</p>
+      <div class="process-grid">
+        <div class="process-step ql-reveal ql-d1">
+          <div class="num">01</div>
+          <h4>需求对接</h4>
+          <p>深入理解项目需求</p>
+        </div>
+        <div class="process-step ql-reveal ql-d2">
+          <div class="num">02</div>
+          <h4>方案制定</h4>
+          <p>定制标注规范方案</p>
+        </div>
+        <div class="process-step ql-reveal ql-d3">
+          <div class="num">03</div>
+          <h4>试标验收</h4>
+          <p>小批量试标验证</p>
+        </div>
+        <div class="process-step ql-reveal ql-d4">
+          <div class="num">04</div>
+          <h4>专项培训</h4>
+          <p>团队技能专项培训</p>
+        </div>
+        <div class="process-step ql-reveal ql-d5">
+          <div class="num">05</div>
+          <h4>批量标注</h4>
+          <p>规模化生产质检</p>
+        </div>
+        <div class="process-step ql-reveal ql-d6">
+          <div class="num">06</div>
+          <h4>交付复盘</h4>
+          <p>交付与复盘优化</p>
+        </div>
+      </div>
+      <div style="margin-top:24px;text-align:center"><img src="assets/ppt_images/slide22_11.png" alt="SOP流程"
+          class="service-img ql-reveal" style="max-width:500px;display:inline-block" loading="lazy"></div>
+    </div>
+  </section>
 
-<script>(function(){function r(){var e=document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h');if(!e.length)return;var obs=new IntersectionObserver(function(n){n.forEach(function(t){t.isIntersecting&&(t.target.classList.add('show'))})},{threshold:.15});e.forEach(function(el){obs.observe(el)})}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',r):r();setTimeout(r,1e3)})();</script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="logo-text">清珞未来</span>
+          <p>AI数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p>
+        </div>
+        <div>
+          <h4>数据服务</h4><a href="services.html">数据标注服务</a><a href="services.html">数据采集服务</a><a
+            href="services.html">大模型数据服务</a><a href="services.html">内容审核服务</a>
+        </div>
+        <div>
+          <h4>解决方案</h4><a href="solutions.html">智能驾驶</a><a href="solutions.html">大语言模型</a><a
+            href="solutions.html">智慧医疗</a><a href="solutions.html">智慧安防</a>
+        </div>
+        <div>
+          <h4>技术与保障</h4><a href="technology.html">自研平台</a><a href="technology.html">SOP 流程</a><a
+            href="technology.html">三级质控</a><a href="technology.html">项目经验</a>
+        </div>
+        <div>
+          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">文化理念</a><a
+            href="index.html#contact">联系我们</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();</script>
 </body>
+
 </html>
