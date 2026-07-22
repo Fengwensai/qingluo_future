@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Segoe UI',Helvetica,Arial,'PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;background:#030014;color:#fff;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+::selection{color:#fff;background:#4a428b}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#030014}
+::-webkit-scrollbar-thumb{background:#7000FF;border-radius:3px}
+.nav-wrapper{position:sticky;top:0;left:0;right:0;z-index:99999;display:flex;justify-content:center;pointer-events:none}
+.nav-pill{display:flex;align-items:center;gap:20px;padding:10px 24px;background:rgba(15,5,40,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:40px;backdrop-filter:blur(20px);pointer-events:auto;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.nav-pill a{padding:4px 12px;color:rgba(244,240,255,0.8);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;border-radius:20px}
+.nav-pill a:hover,.nav-pill a.active{color:#fff;background:rgba(112,0,255,0.25)}
+.nav-spacer{height:0px}
+.page{animation:fadeIn 0.4s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}.section-alt{background:rgba(117,73,255,0.02)}
+.section-title{font-size:32px;font-weight:600;text-align:center;color:#fff;margin-bottom:12px;letter-spacing:1px}
+.section-subtitle{text-align:center;color:rgba(255,255,255,0.55);font-size:15px;max-width:650px;margin:0 auto 40px;letter-spacing:1px}
+.hero{min-height:50vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(117,73,255,0.25) 0%,transparent 60%);z-index:0}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(117,73,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(117,73,255,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:44px;font-weight:600;line-height:1.2;margin-bottom:16px;letter-spacing:2px}
+.hero h1 .gradient-text{background:linear-gradient(180deg,#FFFFFF 23%,rgba(255,255,255,0.70) 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:rgba(255,255,255,0.55);font-size:16px;max-width:600px;margin:0 auto;letter-spacing:1px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:28px 24px;transition:all 0.3s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(112,0,255,0.3)}
+.card-icon{width:48px;height:48px;border-radius:12px;background:rgba(112,0,255,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card h3{font-size:17px;font-weight:500;margin-bottom:10px;color:#F4F0FF}
+.card p{font-size:14px;color:rgba(155,150,176,0.8);line-height:1.7}
+.card ul{list-style:none;margin-top:10px}
+.card ul li{padding:4px 0;padding-left:16px;position:relative;color:rgba(155,150,176,0.9);font-size:13px}
+.card ul li::before{content:'▸';position:absolute;left:0;color:#7000FF}
+img.tech-img{border-radius:12px;border:1px solid rgba(255,255,255,0.06);width:100%;height:auto;transition:transform 0.3s ease}
+img.tech-img:hover{transform:scale(1.02)}
+.qc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.qc-card{text-align:center;padding:28px 20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;transition:all 0.3s ease}
+.qc-card:hover{border-color:rgba(112,0,255,0.3);transform:translateY(-4px)}
+.qc-card .level{font-size:32px;font-weight:700;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.qc-card h4{font-size:15px;font-weight:500;margin-bottom:6px;color:#F4F0FF}
+.qc-card p{font-size:13px;color:#9B96B0;line-height:1.5}
+
+@keyframes animRevealUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes animRevealVertical{0%{clip-path:inset(0 0 100%);opacity:0}100%{clip-path:inset(0);opacity:1}}
+@keyframes animFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ql-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.25,.1,.25,1),transform .7s cubic-bezier(.25,.1,.25,1)}
+.ql-reveal.show{opacity:1;transform:translateY(0)}
+.ql-float{animation:animFloat 2.6s ease-in-out infinite}
+.ql-d1{transition-delay:.1s}.ql-d2{transition-delay:.2s}.ql-d3{transition-delay:.3s}.ql-d4{transition-delay:.4s}.ql-d5{transition-delay:.5s}.ql-d6{transition-delay:.6s}
+
+.footer{border-top:1px solid rgba(255,255,255,0.06);padding:48px 0 24px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-brand .logo-text{font-size:17px;font-weight:600;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;display:block}
+.footer-brand p{color:#9B96B0;font-size:13px;line-height:1.6;max-width:280px}
+.footer h4{font-size:15px;font-weight:500;margin-bottom:14px;color:#F4F0FF}
+.footer a{display:block;color:#9B96B0;font-size:13px;padding:3px 0;transition:color 0.3s ease}
+.footer a:hover{color:#b2a0ff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{color:#6B6680;font-size:12px}
+@media(max-width:1024px){
+  .qc-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-pill{gap:10px;padding:8px 16px;flex-wrap:wrap;justify-content:center}
+  .nav-pill a{font-size:12px;padding:3px 8px}.hero h1{font-size:28px}
+  .grid-2,.grid-3,.qc-grid{grid-template-columns:1fr}
+  .section{padding:48px 0}.section-title{font-size:22px}.footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="page">
+<div class="nav-wrapper"><div class="nav-pill"><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="services.html">数据服务</a><a href="solutions.html">解决方案</a><a href="technology.html" class="active">技术与保障</a><a href="index.html#contact">联系我们</a></div></div>
+<div class="nav-spacer"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content ql-reveal">
+    <h1><span class="gradient-text">技术与保障体系</span></h1>
+    <p>自研工具平台、标准化 SOP 与三级质控体系，全方位保障数据质量</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title ql-reveal">自研工具与平台</h2>
+    <p class="section-subtitle ql-reveal ql-d1">三大自研平台支撑全流程数据服务</p>
+    <div class="grid-3">
+      <div class="card ql-reveal ql-d1"><div class="card-icon">📱</div><h3>自研采集小程序</h3><p>移动端一键采集，支持实时上传、在线审核、数据脱敏。覆盖图片、语音、视频等多种数据类型。</p><ul><li>移动端便捷采集</li><li>实时上传与同步</li><li>在线审核与脱敏</li></ul></div>
+      <div class="card ql-reveal ql-d2"><div class="card-icon">🖥️</div><h3>自研标注平台</h3><p>集成 2D/3D/4D 标注工具，支持协同标注、进度监控、数据加密与 API 对接，内置 AI 辅助标注。</p><ul><li>2D/3D/4D 全工具链</li><li>协同标注与进度监控</li><li>AI 辅助标注与智能质检</li></ul></div>
+      <div class="card ql-reveal ql-d3"><div class="card-icon">📊</div><h3>协同管理系统</h3><p>实时项目看板、产值统计、质检监控，实现数据化精细化管理，支持多项目并行。</p><ul><li>实时项目看板</li><li>产值与质量统计</li><li>全流程数据化管理</li></ul></div>
+    </div>
+    <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <img src="assets/ppt_images/slide20_20.png" alt="采集小程序" class="tech-img ql-reveal" loading="lazy">
+      <img src="assets/ppt_images/slide20_18.png" alt="标注平台" class="tech-img ql-reveal ql-d1" loading="lazy">
+      <img src="assets/ppt_images/slide21_g01_00.png" alt="协同系统" class="tech-img ql-reveal ql-d2" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title ql-reveal">三级质控体系</h2>
+    <p class="section-subtitle ql-reveal ql-d1">多层级质量管控，确保标注准确率稳定在 99.5% 以上</p>
+    <div class="qc-grid">
+      <div class="qc-card ql-reveal ql-d1"><div class="level">L1</div><h4>标注员自检</h4><p>标注员完成标注后进行自我检查，确保数据格式正确、标注内容规范，从源头把控数据质量。</p></div>
+      <div class="qc-card ql-reveal ql-d2"><div class="level">L2</div><h4>团队交叉互检</h4><p>同一项目组内交叉检查，发现标注偏差及时校准，确保标注标准和规范执行到位。</p></div>
+      <div class="qc-card ql-reveal ql-d3"><div class="level">L3</div><h4>专家终审</h4><p>资深质检团队进行终审把关，配套完善的返工与考核机制，确保交付数据达到行业领先水平。</p></div>
+    </div>
+    <div style="margin-top:24px;text-align:center"><img src="assets/ppt_images/slide23_11.png" alt="三级质控" class="tech-img ql-reveal" style="max-width:500px;display:inline-block" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title ql-reveal">标准化 SOP 流程</h2>
+    <p class="section-subtitle ql-reveal ql-d1">需求对接 → 方案制定 → 试标验收 → 专项培训 → 批量标注 → 三级质检 → 交付复盘</p>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:24px">
+      <div class="ql-reveal ql-d1" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">01</div>需求对接</div>
+      <div class="ql-reveal ql-d2" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">02</div>方案制定</div>
+      <div class="ql-reveal ql-d3" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">03</div>试标验收</div>
+      <div class="ql-reveal ql-d4" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">04</div>专项培训</div>
+      <div class="ql-reveal ql-d5" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">05</div>批量标注</div>
+      <div class="ql-reveal ql-d6" style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">06</div>三级质检</div>
+      <div style="text-align:center;padding:12px 6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:12px"><div style="width:24px;height:24px;border-radius:50%;background:rgba(112,0,255,0.2);color:#7000FF;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-weight:700;font-size:11px">07</div>交付复盘</div>
+    </div>
+    <img src="assets/ppt_images/slide22_11.png" alt="SOP流程" class="tech-img ql-reveal" style="max-width:500px;display:block;margin:0 auto" loading="lazy">
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title ql-reveal">项目经验</h2>
+    <p class="section-subtitle ql-reveal ql-d1">作为多家大型数据平台的优质服务商，交付经验丰富</p>
+    <div class="grid-2">
+      <div class="card ql-reveal ql-d1" style="margin:0"><div class="card-icon">🚗</div><h3>吉利泊车点云标注</h3><p>为吉利汽车提供泊车场景下的 3D 点云标注服务，涵盖停车场、路边停车等多类复杂场景，助力自动驾驶泊车系统迭代优化。</p></div>
+      <div class="card ql-reveal ql-d2" style="margin:0"><div class="card-icon">🚧</div><h3>吉利动态障碍物标注</h3><p>为吉利汽车提供动态障碍物检测标注，包括车辆、行人、非机动车等动态目标的识别与轨迹标注。</p></div>
+      <div class="card ql-reveal ql-d3" style="margin:0"><div class="card-icon">🔗</div><h3>阿里 2D3D 融合端到端</h3><p>为阿里巴巴提供 2D 图像与 3D 点云融合标注服务，支持端到端的感知模型训练，获得客户高度认可。</p></div>
+      <div class="card ql-reveal ql-d4" style="margin:0"><div class="card-icon">🛡️</div><h3>内容审核服务</h3><p>曾服务多位知名互联网内容平台，具备上百人团队的基地管理经验，快速响应、高质量交付。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-text">清珞未来</span><p>AI数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p></div><div><h4>数据服务</h4><a href="services.html">数据标注服务</a><a href="services.html">数据采集服务</a><a href="services.html">大模型数据服务</a><a href="services.html">内容审核服务</a></div><div><h4>解决方案</h4><a href="solutions.html">智能驾驶</a><a href="solutions.html">大语言模型</a><a href="solutions.html">智慧医疗</a><a href="solutions.html">智慧安防</a></div><div><h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">技术与保障</a><a href="index.html#contact">联系我们</a></div></div><div class="footer-bottom"><p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p></div></div></footer>
+
+<script>(function(){function r(){var e=document.querySelectorAll('.ql-reveal');if(!e.length)return;var obs=new IntersectionObserver(function(n){n.forEach(function(t){t.isIntersecting&&(t.target.classList.add('show'))})},{threshold:.15});e.forEach(function(el){obs.observe(el)})}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',r):r();setTimeout(r,1e3)})();</script>
+</body>
+</html>

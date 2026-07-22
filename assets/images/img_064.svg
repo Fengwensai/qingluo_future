@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+	<defs>
+		<filter id="filter3697709313" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feComponentTransfer in="SourceAlpha" result="componentTransfer1281898598">
+				<feFuncR type="linear" slope="0" intercept="0"/>
+				<feFuncG type="linear" slope="0" intercept="0"/>
+				<feFuncB type="linear" slope="0" intercept="0"/>
+				<feFuncA type="linear" slope="10000" intercept="0"/>
+			</feComponentTransfer>
+			<feComponentTransfer in="componentTransfer1281898598" result="componentTransfer5935768983">
+				<feFuncA type="linear" slope="0.25" intercept="0"/>
+			</feComponentTransfer>
+			<feOffset dx="0" dy="4" in="componentTransfer5935768983" result="offset0849227523"/>
+			<feGaussianBlur stdDeviation="2" in="offset0849227523" result="gaussianBlur4251367384"/>
+			<feMerge>
+				<feMergeNode in="gaussianBlur4251367384"/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+	</defs>
+	<g filter="url(#filter3697709313)">
+		<defs>
+			<linearGradient id="linearGradient0082334274" gradientTransform="matrix(28.5 44 -38.5357 148.801 23.7679 -78.4006)" gradientUnits="userSpaceOnUse" x1="0" y1="0.5" x2="1" y2="0.5">
+				<stop offset="0" stop-color="rgb(112, 0, 255)"/>
+				<stop offset="0.57526344" stop-color="rgb(241, 61, 212)"/>
+				<stop offset="1" stop-color="rgb(248, 58, 58)"/>
+			</linearGradient>
+		</defs>
+		<path transform="matrix(1 0 0 1 4 0)" d="M4 0C1.79086 0 0 1.79086 0 4L0 36C0 38.2091 1.79086 40 4 40L36 40C38.2091 40 40 38.2091 40 36L40 4C40 1.79086 38.2091 0 36 0L4 0Z" fill-rule="nonzero" fill="url(#linearGradient0082334274)"/>
+		<path transform="matrix(1 0 0 1 17 13.18)" d="M11 2.4L5.5 0L0 2.4L0 6C0 9.5 2.33 12.74 5.5 13.74C5.75 13.66 5.99 13.54 6.23 13.44C6.08 12.93 6 12.38 6 11.82C6 8.85 8.16 6.39 11 5.91L11 2.4Z" fill-rule="nonzero" fill="rgb(255, 255, 255)" opacity="0.4"/>
+		<path transform="matrix(1 0 0 1 25 21)" d="M4 0C1.79 0 0 1.79 0 4C0 6.21 1.79 8 4 8C6.21 8 8 6.21 8 4C8 1.79 6.21 0 4 0ZM4 1.38C4.62 1.38 5.12 1.89 5.12 2.5C5.12 3.11 4.61 3.62 4 3.62C3.39 3.62 2.88 3.11 2.88 2.5C2.88 1.89 3.38 1.38 4 1.38ZM4 6.75C3.07 6.75 2.26 6.29 1.76 5.58C1.81 4.86 3.27 4.5 4 4.5C4.73 4.5 6.19 4.86 6.24 5.58C5.74 6.29 4.93 6.75 4 6.75Z" fill-rule="nonzero" fill="rgb(255, 255, 255)" opacity="0.3"/>
+		<path transform="matrix(1 0 0 1 27.88 22.38)" d="M1.12 0C0.501441 0 0 0.501441 0 1.12C0 1.73856 0.501441 2.24 1.12 2.24C1.73856 2.24 2.24 1.73856 2.24 1.12C2.24 0.501441 1.73856 0 1.12 0Z" fill-rule="nonzero" fill="rgb(255, 255, 255)"/>
+		<path transform="matrix(1 0 0 1 15 11)" d="M15 8.09L15 3.27L7.5 0L0 3.27L0 8.18C0 12.72 3.2 16.97 7.5 18C8.05 17.87 8.58 17.68 9.1 17.45C10.18 18.99 11.97 20 14 20C17.31 20 20 17.31 20 14C20 11.03 17.84 8.57 15 8.09ZM8 14C8 14.56 8.08 15.11 8.23 15.62C7.99 15.73 7.75 15.84 7.5 15.92C4.33 14.92 2 11.68 2 8.18L2 4.58L7.5 2.18L13 4.58L13 8.09C10.16 8.57 8 11.03 8 14ZM14 18C11.79 18 10 16.21 10 14C10 11.79 11.79 10 14 10C16.21 10 18 11.79 18 14C18 16.21 16.21 18 14 18Z" fill-rule="nonzero" fill="rgb(255, 255, 255)"/>
+		<path transform="matrix(1 0 0 1 26.76 25.5)" d="M2.24 0C1.51 0 0.05 0.36 0 1.08C0.5 1.79 1.32 2.25 2.24 2.25C3.16 2.25 3.98 1.79 4.48 1.08C4.43 0.36 2.97 0 2.24 0Z" fill-rule="nonzero" fill="rgb(255, 255, 255)"/>
+	</g>
+</svg>

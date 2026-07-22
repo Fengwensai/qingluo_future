@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+	<defs>
+		<filter id="filter8759856694" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feComponentTransfer in="SourceAlpha" result="componentTransfer1841942086">
+				<feFuncR type="linear" slope="0" intercept="0"/>
+				<feFuncG type="linear" slope="0" intercept="0"/>
+				<feFuncB type="linear" slope="0" intercept="0"/>
+				<feFuncA type="linear" slope="10000" intercept="0"/>
+			</feComponentTransfer>
+			<feComponentTransfer in="componentTransfer1841942086" result="componentTransfer0968833492">
+				<feFuncA type="linear" slope="0.25" intercept="0"/>
+			</feComponentTransfer>
+			<feOffset dx="0" dy="4" in="componentTransfer0968833492" result="offset4375730890"/>
+			<feGaussianBlur stdDeviation="2" in="offset4375730890" result="gaussianBlur6113728942"/>
+			<feMerge>
+				<feMergeNode in="gaussianBlur6113728942"/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+	</defs>
+	<g filter="url(#filter8759856694)">
+		<defs>
+			<linearGradient id="linearGradient3281487850" gradientTransform="matrix(28.5 44 -38.5357 148.801 23.7679 -78.4006)" gradientUnits="userSpaceOnUse" x1="0" y1="0.5" x2="1" y2="0.5">
+				<stop offset="0" stop-color="rgb(112, 0, 255)"/>
+				<stop offset="0.57526344" stop-color="rgb(241, 61, 212)"/>
+				<stop offset="1" stop-color="rgb(248, 58, 58)"/>
+			</linearGradient>
+		</defs>
+		<path transform="matrix(1 0 0 1 4 0)" d="M4 0C1.79086 0 0 1.79086 0 4L0 36C0 38.2091 1.79086 40 4 40L36 40C38.2091 40 40 38.2091 40 36L40 4C40 1.79086 38.2091 0 36 0L4 0Z" fill-rule="nonzero" fill="url(#linearGradient3281487850)"/>
+		<path transform="matrix(1 0 0 1 16 12.58)" d="M11.99 4.42L15.42 4.42C14.6 2.42 13 0.82 11 0L11 3.43C11.37 3.71 11.71 4.05 11.99 4.42ZM0 7.42C0 10.77 2.04 13.66 5 14.84L5 11.4C3.77 10.47 3 9 3 7.41C3 5.82 3.77 4.35 5 3.42L5 0C2.04 1.18 0 4.07 0 7.42ZM11 11.41L11 14.84C13 14.02 14.6 12.42 15.42 10.42L11.99 10.42C11.71 10.79 11.37 11.13 11 11.41L11 11.41Z" fill-rule="nonzero" fill="rgb(255, 255, 255)" opacity="0.4"/>
+		<path transform="matrix(1 0 0 1 14 10.05)" d="M12.82 8.95L19.95 8.95C19.48 4.23 15.72 0.47 11 0L11 7.13C11.85 7.44 12.51 8.1 12.82 8.95ZM13 2.53C15 3.35 16.6 4.95 17.42 6.95L13.99 6.95C13.71 6.58 13.37 6.24 13 5.96L13 2.53L13 2.53ZM0 9.95C0 15.14 3.95 19.4 9 19.9L9 12.77C7.84 12.35 7 11.25 7 9.95C7 8.65 7.84 7.55 9 7.13L9 0C3.95 0.5 0 4.76 0 9.95ZM7 2.53L7 5.97C5.77 6.89 5 8.36 5 9.95C5 11.54 5.77 13.01 7 13.94L7 17.38C4.04 16.19 2 13.3 2 9.95C2 6.6 4.04 3.71 7 2.53ZM11 12.77L11 19.9C15.72 19.43 19.48 15.67 19.95 10.95L12.82 10.95C12.51 11.8 11.85 12.46 11 12.77ZM13 13.94C13.37 13.66 13.71 13.33 13.99 12.95L17.42 12.95C16.6 14.95 15 16.55 13 17.37L13 13.94L13 13.94Z" fill-rule="nonzero" fill="rgb(255, 255, 255)"/>
+	</g>
+</svg>

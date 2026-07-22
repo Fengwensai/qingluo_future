@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Segoe UI',Helvetica,Arial,'PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;background:#030014;color:#fff;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+::selection{color:#fff;background:#4a428b}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#030014}
+::-webkit-scrollbar-thumb{background:#7000FF;border-radius:3px}
+.nav-wrapper{position:sticky;top:0;left:0;right:0;z-index:99999;display:flex;justify-content:center;pointer-events:none}
+.nav-pill{display:flex;align-items:center;gap:20px;padding:10px 24px;background:rgba(15,5,40,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:40px;backdrop-filter:blur(20px);pointer-events:auto;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.nav-pill a{padding:4px 12px;color:rgba(244,240,255,0.8);font-size:13px;font-weight:500;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;border-radius:20px}
+.nav-pill a:hover,.nav-pill a.active{color:#fff;background:rgba(112,0,255,0.25)}
+.nav-spacer{height:0px}
+.page{animation:fadeIn 0.4s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}.section-alt{background:rgba(117,73,255,0.02)}
+.section-title{font-size:32px;font-weight:600;text-align:center;color:#fff;margin-bottom:12px;letter-spacing:1px}
+.section-subtitle{text-align:center;color:rgba(255,255,255,0.55);font-size:15px;max-width:650px;margin:0 auto 40px;letter-spacing:1px}
+.hero{min-height:50vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(117,73,255,0.25) 0%,transparent 60%);z-index:0}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(117,73,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(117,73,255,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:44px;font-weight:600;line-height:1.2;margin-bottom:16px;letter-spacing:2px}
+.hero h1 .gradient-text{background:linear-gradient(180deg,#FFFFFF 23%,rgba(255,255,255,0.70) 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:rgba(255,255,255,0.55);font-size:16px;max-width:600px;margin:0 auto;letter-spacing:1px}
+.solution-card{display:flex;gap:28px;padding:36px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;margin-bottom:28px;transition:all 0.3s ease}
+.solution-card:hover{border-color:rgba(112,0,255,0.3);transform:translateY(-4px)}
+.solution-card.reverse{flex-direction:row-reverse}
+.solution-card>div{flex:1;min-width:0}
+.solution-card .icon{width:52px;height:52px;border-radius:14px;background:rgba(112,0,255,0.1);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:12px}
+.solution-card h3{font-size:22px;font-weight:600;margin-bottom:10px;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.solution-card p{color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:12px;font-size:14px}
+.solution-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.solution-card ul li{padding:6px 0;padding-left:22px;position:relative;color:rgba(255,255,255,0.75);font-size:13px}
+.solution-card ul li::before{content:'✓';position:absolute;left:0;color:#7000FF;font-weight:700}
+.tag{display:inline-block;padding:2px 10px;border-radius:4px;background:rgba(112,0,255,0.12);color:#7000FF;font-size:11px;margin-bottom:10px;letter-spacing:1px}
+img.solution-img{border-radius:12px;border:1px solid rgba(255,255,255,0.06);width:100%;height:auto;transition:transform 0.3s ease}
+img.solution-img:hover{transform:scale(1.02)}
+.highlight-box{padding:20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;margin-bottom:14px}
+.highlight-box h4{color:#7000FF;margin-bottom:6px;font-size:14px}
+.highlight-box p{color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6}
+.industries{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.ind-card{text-align:center;padding:20px 12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;transition:all 0.3s ease}
+.ind-card:hover{border-color:rgba(112,0,255,0.3);transform:translateY(-4px)}
+.ind-card .ind-icon{font-size:28px;margin-bottom:10px}
+.ind-card h4{font-size:14px;font-weight:500;color:#F4F0FF;margin-bottom:6px}
+.ind-card p{font-size:12px;color:#9B96B0;line-height:1.4}
+
+@keyframes animRevealUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes animRevealVertical{0%{clip-path:inset(0 0 100%);opacity:0}100%{clip-path:inset(0);opacity:1}}
+@keyframes animFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ql-reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.25,.1,.25,1),transform .7s cubic-bezier(.25,.1,.25,1)}
+.ql-reveal.show{opacity:1;transform:translateY(0)}
+.ql-float{animation:animFloat 2.6s ease-in-out infinite}
+.ql-d1{transition-delay:.1s}.ql-d2{transition-delay:.2s}.ql-d3{transition-delay:.3s}.ql-d4{transition-delay:.4s}.ql-d5{transition-delay:.5s}.ql-d6{transition-delay:.6s}
+
+.footer{border-top:1px solid rgba(255,255,255,0.06);padding:48px 0 24px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-brand .logo-text{font-size:17px;font-weight:600;background:linear-gradient(135deg,#7549ff,#b2a0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;display:block}
+.footer-brand p{color:#9B96B0;font-size:13px;line-height:1.6;max-width:280px}
+.footer h4{font-size:15px;font-weight:500;margin-bottom:14px;color:#F4F0FF}
+.footer a{display:block;color:#9B96B0;font-size:13px;padding:3px 0;transition:color 0.3s ease}
+.footer a:hover{color:#b2a0ff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{color:#6B6680;font-size:12px}
+@media(max-width:1024px){
+  .industries{grid-template-columns:repeat(3,1fr)}.footer-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nav-pill{gap:10px;padding:8px 16px;flex-wrap:wrap;justify-content:center}
+  .nav-pill a{font-size:12px;padding:3px 8px}.hero h1{font-size:28px}
+  .solution-card,.solution-card.reverse{flex-direction:column;padding:24px}
+  .solution-card ul{grid-template-columns:1fr}
+  .industries{grid-template-columns:repeat(2,1fr)}
+  .section{padding:48px 0}.section-title{font-size:22px}.footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="page">
+<div class="nav-wrapper"><div class="nav-pill"><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="services.html">数据服务</a><a href="solutions.html" class="active">解决方案</a><a href="technology.html">技术与保障</a><a href="index.html#contact">联系我们</a></div></div>
+<div class="nav-spacer"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content ql-reveal">
+    <h1><span class="gradient-text">行业解决方案</span></h1>
+    <p>针对不同行业和应用场景，提供量身定制的 AI 数据解决方案</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="solution-card ql-reveal">
+      <div><div class="icon">🚗</div><span class="tag">AUTONOMOUS DRIVING</span><h3>智能驾驶数据解决方案</h3><p>覆盖 L2-L4 级 3D 点云、4D 车道线标注，采用时空融合算法实现高精度动态建模。紧跟自动驾驶行业前沿数据需求，帮助车企提高车辆的感知能力和决策精度。</p><ul><li>3D 点云目标检测与语义分割</li><li>4D 车道线标注与拟合</li><li>多传感器融合标注</li><li>BEV 感知标注</li></ul><p style="margin-top:12px;color:rgba(112,0,255,0.8);font-size:13px"><strong>项目经验：</strong>曾服务吉利泊车点云、动态障碍物标注、阿里 2D3D 融合端到端等项目。</p></div>
+      <div><img src="assets/ppt_images/slide26_02.png" alt="智能驾驶" class="solution-img" loading="lazy"><div class="highlight-box" style="margin-top:14px"><h4>L2-L4 级全覆盖</h4><p>从基础 ADAS 到高阶自动驾驶，提供全栈数据标注能力</p></div><div class="highlight-box"><h4>时空融合算法</h4><p>实现高精度动态建模，适配城市复杂路况</p></div></div>
+    </div>
+    <div class="solution-card reverse ql-reveal ql-d1">
+      <div><div class="icon">🧠</div><span class="tag">LARGE LANGUAGE MODEL</span><h3>大语言模型数据解决方案</h3><p>通过世界一流的 RLHF、数据生成、模型评估、安全和对齐技术，结合自研 EnableExpert AI 大模型专家平台，为多家知名大语言模型公司提供高质量数据支持。</p><ul><li>RLHF 人类反馈数据标注</li><li>问答对生成与原文引用</li><li>大模型训练数据（SFT）</li><li>模型评测与 BENCHMARK 数据</li></ul></div>
+      <div><img src="assets/ppt_images/slide09_x34.png" alt="大语言模型" class="solution-img" loading="lazy"><div class="highlight-box" style="margin-top:14px"><h4>EnableExpert 平台</h4><p>规模化调用人类顶尖智慧，实现高质量数据生产与交付</p></div></div>
+    </div>
+    <div class="solution-card ql-reveal ql-d2">
+      <div><div class="icon">🎬</div><span class="tag">AI VIDEO & ANIMATION</span><h3>AI 视频/动漫数据解决方案</h3><p>支持多种 AI 视频/动漫风格一键生成，可制作视频特效与场景背景。同时为互联网企业提供虚拟数字人、AR/VR、动画与游戏、身份认证以及配音生成等数据支持。</p><ul><li>AI 视频风格迁移与特效生成</li><li>动漫人物与场景标注</li><li>虚拟数字人数据采集</li><li>生物特征识别数据</li></ul></div>
+      <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="solution-img" loading="lazy"><div class="highlight-box" style="margin-top:14px"><h4>低成本打造电影级特效</h4><p>AI 生成式设计缩短制作周期，从数月到数周</p></div></div>
+    </div>
+    <div class="solution-card reverse ql-reveal ql-d3">
+      <div><div class="icon">🏥</div><span class="tag">SMART HEALTHCARE</span><h3>智慧医疗数据解决方案</h3><p>拥有专业的项目经理及医疗团队资源，提供医学影像标注、电子病历结构化、医学大模型评估、辅助诊断系统优化等全流程数据服务，帮助 AI 系统提升病症识别与诊断精度。</p><ul><li>医学影像标注（CT/MRI/X 光）</li><li>电子病历（EMR）结构化</li><li>病理切片标注</li><li>医学大模型评估评测</li></ul></div>
+      <div><img src="assets/ppt_images/slide09_x32.png" alt="智慧医疗" class="solution-img" loading="lazy"><div class="highlight-box" style="margin-top:14px"><h4>专业医疗团队</h4><p>拥有专业项目经理与医疗专家资源，确保标注专业性与准确性</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title ql-reveal">其他行业赋能</h2>
+    <p class="section-subtitle ql-reveal ql-d1">覆盖医疗健康、金融科技、智慧城市、工业制造、电商零售五大核心行业</p>
+    <div class="industries">
+      <div class="ind-card ql-reveal ql-d1"><div class="ind-icon">🏦</div><h4>金融科技</h4><p>智能风控、票据识别、客户服务</p></div>
+      <div class="ind-card ql-reveal ql-d2"><div class="ind-icon">🏙️</div><h4>智慧城市</h4><p>交通流量、公共安全、城市管理</p></div>
+      <div class="ind-card ql-reveal ql-d3"><div class="ind-icon">🏭</div><h4>工业制造</h4><p>缺陷检测、质量管控、自动化产线</p></div>
+      <div class="ind-card ql-reveal ql-d4"><div class="ind-icon">🛒</div><h4>电商零售</h4><p>无人商店、商品分类、智能客服</p></div>
+      <div class="ind-card ql-reveal ql-d5"><div class="ind-icon">🔬</div><h4>医疗健康</h4><p>医学影像、电子病历、药物发现</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-text">清珞未来</span><p>AI数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p></div><div><h4>数据服务</h4><a href="services.html">数据标注服务</a><a href="services.html">数据采集服务</a><a href="services.html">大模型数据服务</a><a href="services.html">内容审核服务</a></div><div><h4>解决方案</h4><a href="solutions.html">智能驾驶</a><a href="solutions.html">大语言模型</a><a href="solutions.html">智慧医疗</a><a href="solutions.html">智慧安防</a></div><div><h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">技术与保障</a><a href="index.html#contact">联系我们</a></div></div><div class="footer-bottom"><p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p></div></div></footer>
+
+<script>(function(){function r(){var e=document.querySelectorAll('.ql-reveal');if(!e.length)return;var obs=new IntersectionObserver(function(n){n.forEach(function(t){t.isIntersecting&&(t.target.classList.add('show'))})},{threshold:.15});e.forEach(function(el){obs.observe(el)})}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',r):r();setTimeout(r,1e3)})();</script>
+</body>
+</html>

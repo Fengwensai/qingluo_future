@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
+  <meta name="description" content="河北清珞未来信息技术有限公司，AI数据服务全链路解决方案提供商，致力于提供数据标注、数据采集、大模型数据、内容审核等专业AI数据服务。">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+      background: #030014;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ::selection {
+      color: #fff;
+      background: #4a428b
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #030014
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #7000FF;
+      border-radius: 3px
+    }
+
+    /* ===== Nav ===== */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      padding-top: 16px
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 24px;
+      background: rgba(15, 5, 40, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 40px;
+      backdrop-filter: blur(20px);
+      pointer-events: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
+    }
+
+    .nav-pill a {
+      padding: 4px 12px;
+      color: rgba(244, 240, 255, 0.8);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border-radius: 20px
+    }
+
+    .nav-pill a:hover,
+    .nav-pill a.active {
+      color: #fff;
+      background: rgba(112, 0, 255, 0.25)
+    }
+
+    /* ===== Animations ===== */
+    .page {
+      animation: fadeIn 0.4s ease both
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .ql-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.25, .1, .25, 1), transform .7s cubic-bezier(.25, .1, .25, 1)
+    }
+
+    .ql-reveal.show {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .ql-d1 {
+      transition-delay: .1s
+    }
+
+    .ql-d2 {
+      transition-delay: .2s
+    }
+
+    .ql-d3 {
+      transition-delay: .3s
+    }
+
+    .ql-d4 {
+      transition-delay: .4s
+    }
+
+    .ql-d5 {
+      transition-delay: .5s
+    }
+
+    .ql-d6 {
+      transition-delay: .6s
+    }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .section {
+      padding: 80px 0
+    }
+
+    .section-alt {
+      background: rgba(117, 73, 255, 0.02)
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 1px
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 15px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      letter-spacing: 1px
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(117, 73, 255, 0.25) 0%, transparent 60%);
+      z-index: 0
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(117, 73, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(117, 73, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: 2px
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(180deg, #FFFFFF 23%, rgba(255, 255, 255, 0.70) 95%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 16px;
+      max-width: 650px;
+      margin: 0 auto 32px;
+      letter-spacing: 1px;
+      line-height: 1.8
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: rgba(112, 0, 255, 0.12);
+      border: 1px solid rgba(112, 0, 255, 0.25);
+      color: #b2a0ff;
+      font-size: 13px;
+      margin-bottom: 20px;
+      letter-spacing: 2px
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      letter-spacing: 1px
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7000FF, #a855f7);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.3)
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.45)
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8)
+    }
+
+    .btn-outline:hover {
+      border-color: #7000FF;
+      color: #fff;
+      background: rgba(112, 0, 255, 0.1)
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    /* ===== Features Grid ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.4s ease
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(112, 0, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(117, 73, 255, 0.08)
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 16px;
+      background: rgba(112, 0, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .feature-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #F4F0FF;
+      margin-bottom: 4px;
+      letter-spacing: 1px
+    }
+
+    .feature-card .feature-sub {
+      font-size: 11px;
+      color: rgba(155, 150, 176, 0.6);
+      letter-spacing: 1px;
+      margin-bottom: 12px
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: rgba(155, 150, 176, 0.8);
+      line-height: 1.7
+    }
+
+    /* ===== Cards ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.3s ease
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112, 0, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(117, 73, 255, 0.08)
+    }
+
+    /* ===== Service Block ===== */
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+      padding: 36px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px
+    }
+
+    .service-block.reverse {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl
+    }
+
+    .service-block.reverse>* {
+      direction: ltr
+    }
+
+    .service-block h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px
+    }
+
+    .service-block h3 .gradient-accent {
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .service-block .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      background: rgba(112, 0, 255, 0.12);
+      color: #7000FF;
+      font-size: 11px;
+      margin-bottom: 10px;
+      letter-spacing: 1px
+    }
+
+    .service-block p {
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-size: 14px
+    }
+
+    .service-block ul {
+      list-style: none
+    }
+
+    .service-block ul li {
+      padding: 6px 0;
+      padding-left: 22px;
+      position: relative;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 13px
+    }
+
+    .service-block ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #7000FF;
+      font-weight: 700
+    }
+
+    .service-block img {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease
+    }
+
+    .service-block img:hover {
+      transform: scale(1.02)
+    }
+
+    /* ===== Platform ===== */
+    .platform-header {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .platform-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px
+    }
+
+    .platform-header h2 .gradient-accent {
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .platform-header p {
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 15px
+    }
+
+    .playout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px
+    }
+
+    .platform-visual img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06)
+    }
+
+    .pfeatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .pfeature {
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: all 0.3s ease
+    }
+
+    .pfeature:hover {
+      background: rgba(112, 0, 255, 0.05);
+      border-color: rgba(112, 0, 255, 0.2)
+    }
+
+    .pfeature-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      background: rgba(112, 0, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px
+    }
+
+    .pfeature h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #F4F0FF;
+      margin-bottom: 4px
+    }
+
+    .pfeature p {
+      font-size: 12px;
+      color: rgba(155, 150, 176, 0.8);
+      line-height: 1.5
+    }
+
+    /* ===== QC Section ===== */
+    .qc-header {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .qc-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px
+    }
+
+    .qc-header h2 .gradient-accent {
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .qc-header p {
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 15px
+    }
+
+    .qc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .qc-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.3s ease
+    }
+
+    .qc-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112, 0, 255, 0.3)
+    }
+
+    .qc-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(112, 0, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px
+    }
+
+    .qc-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F4F0FF;
+      margin-bottom: 8px
+    }
+
+    .qc-card p {
+      font-size: 13px;
+      color: rgba(155, 150, 176, 0.8);
+      line-height: 1.6
+    }
+
+    /* ===== Solutions Grid ===== */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
+    .solution-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease
+    }
+
+    .solution-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112, 0, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(117, 73, 255, 0.08)
+    }
+
+    .solution-icon {
+      font-size: 28px;
+      margin-bottom: 10px
+    }
+
+    .solution-item h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #F4F0FF;
+      margin-bottom: 6px
+    }
+
+    .solution-item p {
+      font-size: 12px;
+      color: rgba(155, 150, 176, 0.8);
+      line-height: 1.6
+    }
+
+    /* ===== Blog ===== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(112, 0, 255, 0.3)
+    }
+
+    .blog-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      background: rgba(112, 0, 255, 0.12);
+      color: #7000FF;
+      font-size: 11px;
+      margin-bottom: 10px;
+      align-self: flex-start
+    }
+
+    .blog-card h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #F4F0FF;
+      margin-bottom: 8px;
+      line-height: 1.5;
+      flex: 1
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(155, 150, 176, 0.6);
+      font-size: 12px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06)
+    }
+
+    /* ===== Contact / CTA ===== */
+    .cta-banner {
+      text-align: center;
+      padding: 80px 0;
+      position: relative
+    }
+
+    .cta-banner h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 28px;
+      font-size: 15px
+    }
+
+    /* ===== Stats ===== */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px
+    }
+
+    .stat-item {
+      text-align: center
+    }
+
+    .stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .stat-label {
+      color: rgba(155, 150, 176, 0.6);
+      font-size: 12px;
+      margin-top: 4px;
+      letter-spacing: 1px
+    }
+
+    /* ===== Partners ===== */
+    .partner-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06)
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 48px 0 24px
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px
+    }
+
+    .footer-brand .logo-text {
+      font-size: 17px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: block
+    }
+
+    .footer-brand p {
+      color: #9B96B0;
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 280px
+    }
+
+    .footer h4 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: #F4F0FF
+    }
+
+    .footer a {
+      display: block;
+      color: #9B96B0;
+      font-size: 13px;
+      padding: 3px 0;
+      transition: color 0.3s ease
+    }
+
+    .footer a:hover {
+      color: #b2a0ff
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-bottom p {
+      color: #6B6680;
+      font-size: 12px
+    }
+
+    .footer-contact {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap
+    }
+
+    .footer-contact span {
+      color: #9B96B0;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    /* ===== Chat Widget ===== */
+    .chat-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999
+    }
+
+    .chat-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7000FF, #a855f7);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.4);
+      transition: all 0.3s ease
+    }
+
+    .chat-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.5)
+    }
+
+    .chat-btn img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1)
+    }
+
+    /* ===== Responsive ===== */
+    @media(max-width:1024px) {
+
+      .features-grid,
+      .qc-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .solution-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .playout {
+        grid-template-columns: 1fr
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .service-block {
+        grid-template-columns: 1fr;
+        text-align: center
+      }
+
+      .service-block.reverse {
+        direction: ltr
+      }
+
+      .service-block ul li {
+        padding-left: 0;
+        text-align: center
+      }
+
+      .service-block ul li::before {
+        position: static;
+        margin-right: 6px
+      }
+
+      .stats-row {
+        gap: 24px
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-pill {
+        gap: 10px;
+        padding: 8px 16px;
+        flex-wrap: wrap;
+        justify-content: center
+      }
+
+      .nav-pill a {
+        font-size: 12px;
+        padding: 3px 8px
+      }
+
+      .hero h1 {
+        font-size: 28px
+      }
+
+      .hero {
+        min-height: 60vh
+      }
+
+      .features-grid,
+      .qc-grid {
+        grid-template-columns: 1fr
+      }
+
+      .solution-grid {
+        grid-template-columns: 1fr
+      }
+
+      .pfeatures {
+        grid-template-columns: 1fr
+      }
+
+      .section {
+        padding: 48px 0
+      }
+
+      .section-title {
+        font-size: 22px
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center
+      }
+
+      .stat-num {
+        font-size: 28px
+      }
+    }
+  </style>
+</head>
+
+<body class="page">
+
+  <nav class="nav-wrapper">
+    <div class="nav-pill">
+      <a href="index.html" class="active">首页</a>
+      <a href="about.html">关于我们</a>
+      <a href="services.html">数据服务</a>
+      <a href="solutions.html">解决方案</a>
+      <a href="technology.html">技术与保障</a>
+      <a href="index.html#contact">联系我们</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content ql-reveal">
+      <div class="hero-tag">AI 数据服务全链路解决方案提供商 · 2026</div>
+      <h1><span class="gradient-text">智绘数据，标注未来</span></h1>
+      <p>清珞未来致力于成为 AI 模型全生命周期的数据服务伙伴，提供高质量的数据标注与数据采集服务，为人工智能产业提供专业的训练数据支撑，助力客户高效研发 AI 模型，加速智能应用落地。</p>
+      <div class="hero-cta">
+        <a href="index.html#contact" class="btn btn-primary">联系销售</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title ql-reveal">战略优势</h2>
+      <p class="section-subtitle ql-reveal ql-d1">6年+行业经验，四大核心竞争力构筑行业壁垒</p>
+      <div class="features-grid">
+        <div class="feature-card ql-reveal ql-d1">
+          <div class="feature-icon"><img src="assets/images/img_003.svg" alt="" loading="lazy"></div>
+          <h3>就近交付</h3>
+          <div class="feature-sub">四大基地覆盖全国</div>
+          <p>四大基地覆盖华北（石家庄总部）、华东（唐山）、西北（新疆）、东北（内蒙），可就近调配资源，实现快速响应与高效交付，降低沟通成本，提升服务质量。</p>
+        </div>
+        <div class="feature-card ql-reveal ql-d2">
+          <div class="feature-icon"><img src="assets/images/img_060.svg" alt="" loading="lazy"></div>
+          <h3>7×24小时响应</h3>
+          <div class="feature-sub">全天候服务保障</div>
+          <p>全天候项目服务支持体系，多基地轮值保障，确保客户需求第一时间得到响应。配备完善的项目管理流程与应急机制，助力客户项目按期高质量交付。</p>
+        </div>
+        <div class="feature-card ql-reveal ql-d3">
+          <div class="feature-icon"><img src="assets/images/img_063.svg" alt="" loading="lazy"></div>
+          <h3>成本优化</h3>
+          <div class="feature-sub">全链路成本管控</div>
+          <p>通过四大基地布局优化、标准化 SOP 流程和自研工具平台（采集小程序、标注平台、协同系统），实现全链路成本管控，在保证质量的前提下为客户大幅降低数据生产成本。</p>
+        </div>
+        <div class="feature-card ql-reveal ql-d4">
+          <div class="feature-icon"><img src="assets/images/img_064.svg" alt="" loading="lazy"></div>
+          <h3>安全合规</h3>
+          <div class="feature-sub">ISO 国际认证体系</div>
+          <p>获得 ISO 27001、CMMI 等国际认证，建立完善的信息安全管理体系。配备高性能计算集群与数据加密传输系统，确保数据全生命周期的安全可控。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <h2 class="section-title ql-reveal">核心业务板块</h2>
+      <p class="section-subtitle ql-reveal ql-d1">覆盖 AI 数据全链路，四大重点领域专项服务</p>
+      <div class="service-block ql-reveal ql-d1">
+        <div>
+          <span class="tag">智能驾驶</span>
+          <h3><span class="gradient-accent">智能驾驶数据服务</span></h3>
+          <p>紧跟自动驾驶行业前沿数据需求，提供 L2-L4 级 3D 点云、4D 车道线标注服务，采用时空融合算法实现高精度动态建模，适配城市复杂路况。</p>
+          <ul>
+            <li>3D 目标检测、激光雷达标注、4D 车道线标注</li>
+            <li>2D 图像目标检测（画框）、语义分割、关键点标记</li>
+            <li>服务于自动驾驶、人脸识别、医学影像分析等领域</li>
+          </ul>
+        </div>
+        <div><img src="assets/images/img_021.svg" alt="智能驾驶数据服务" loading="lazy"></div>
+      </div>
+      <div class="service-block reverse ql-reveal ql-d2">
+        <div>
+          <span class="tag">大模型</span>
+          <h3><span class="gradient-accent">AI 大模型数据服务</span></h3>
+          <p>建设先进的大语言模型和生成式 AI 依赖于高质量、多样化的训练数据集。提供文本清洗、图像精标、RLHF 标注及数据采集训练全流程服务，支撑大模型优化迭代。</p>
+          <ul>
+            <li>文本清洗、图像精标、RLHF 标注全流程服务</li>
+            <li>从问答对生成到模型评估、安全评测一站式方案</li>
+            <li>支撑大模型优化迭代，提升模型泛化能力</li>
+          </ul>
+        </div>
+        <div><img src="assets/images/img_037.svg" alt="AI 大模型数据服务" loading="lazy"></div>
+      </div>
+      <div class="service-block ql-reveal ql-d3">
+        <div>
+          <span class="tag">AI视频</span>
+          <h3><span class="gradient-accent">AI 视频/动漫数据服务</span></h3>
+          <p>支持多种风格一键生成，可制作视频特效与场景背景，高效提升创作效率。为影视 IP 衍生开发、商业广告创意优化、风格化图像生成等场景提供数据支持。</p>
+          <ul>
+            <li>支持多种风格一键生成与视频特效制作</li>
+            <li>服务于影视 IP、商业广告、动漫游戏领域</li>
+            <li>风格化图像生成与衍生开发数据支持</li>
+          </ul>
+        </div>
+        <div><img src="assets/images/img_072.svg" alt="AI 视频/动漫数据服务" loading="lazy"></div>
+      </div>
+      <div class="service-block reverse ql-reveal ql-d4">
+        <div>
+          <span class="tag">多行业</span>
+          <h3><span class="gradient-accent">多行业数据解决方案</span></h3>
+          <p>为医疗健康、金融科技、智慧城市、工业制造、电商零售五大核心行业提供专业的数据解决方案。通过大规模数据采集与标注，助力各行业 AI 系统提升算法精度。</p>
+          <ul>
+            <li>医疗健康：医学影像、电子病历、辅助诊断系统</li>
+            <li>金融科技：智能风控、身份认证、智能客服</li>
+            <li>智慧城市：智能安防、行为分析、智慧交通</li>
+            <li>工业制造：工业机器人、质量检测、自动化设计</li>
+            <li>电商零售：商品分类、无人商店、推荐系统</li>
+          </ul>
+        </div>
+        <div><img src="assets/images/img_015.svg" alt="多行业数据解决方案" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="platform">
+    <div class="container">
+      <div class="platform-header ql-reveal">
+        <h2><span class="gradient-accent">自研工具与平台</span></h2>
+        <p>高效的数据生产工具链 — 采集、标注、协同全流程自研，赋能数据生产全链路</p>
+      </div>
+      <div class="playout ql-reveal ql-d1">
+        <div class="pfeatures">
+          <div class="pfeature ql-reveal ql-d1">
+            <div class="pfeature-icon">📱</div>
+            <div>
+              <h4>自研采集小程序</h4>
+              <p>移动端一键采集、实时上传、在线审核、数据脱敏，满足多场景、多语言数据采集需求。</p>
+            </div>
+          </div>
+          <div class="pfeature ql-reveal ql-d2">
+            <div class="pfeature-icon">🖥️</div>
+            <div>
+              <h4>自研标注平台 (EnableAI)</h4>
+              <p>集成 2D/3D/4D 工具，支持协同标注、进度监控、数据加密、API 对接，提供 100+ 基础模型支撑智能标注。</p>
+            </div>
+          </div>
+          <div class="pfeature ql-reveal ql-d3">
+            <div class="pfeature-icon">🔄</div>
+            <div>
+              <h4>协同管理系统</h4>
+              <p>实时项目看板、产值统计、质检监控，实现数据化管理。支持灵活的工作流配置，定制多轮审核机制与抽检模式。</p>
+            </div>
+          </div>
+          <div class="pfeature ql-reveal ql-d4">
+            <div class="pfeature-icon">🔒</div>
+            <div>
+              <h4>安全与质量控制</h4>
+              <p>高性能计算集群与数据加密传输系统，结合三级质控体系（自检→互检→专审），标注准确率稳定保持在 99.5% 以上。</p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-visual ql-reveal ql-d3">
+          <img src="assets/images/img_009.svg" alt="自研平台展示" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title ql-reveal">技术与保障体系</h2>
+      <p class="section-subtitle ql-reveal ql-d1">标准化 SOP 流程 + 三级质控体系 + 自研工具平台，全方位保障交付质量</p>
+      <div class="qc-grid">
+        <div class="qc-card ql-reveal ql-d1">
+          <div class="qc-card-icon">📋</div>
+          <h4>标准化 SOP 流程</h4>
+          <p>需求对接→方案制定→试标验收→人员专项培训→批量标注→三级质检→交付复盘，全流程标准化、规范化管理，确保每个环节可追溯、可控制、可优化。</p>
+        </div>
+        <div class="qc-card ql-reveal ql-d2">
+          <div class="qc-card-icon">✅</div>
+          <h4>三级质控体系</h4>
+          <p>标注员自检→团队交叉互检→专家终审，标注准确率稳定在 99.5% 以上。配套完善的返工与考核机制，层层把关，确保每一份交付数据的高质量。</p>
+        </div>
+        <div class="qc-card ql-reveal ql-d3">
+          <div class="qc-card-icon">🏆</div>
+          <h4>丰富的项目经验</h4>
+          <p>作为某大型数据平台优质服务商，拥有优质质检团队，负责吉利泊车点云、吉利动态障碍物标注、阿里 2D3D 融合端到端等项目，交付经验丰富，获得客户高度认可。</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a href="technology.html" class="btn btn-primary">了解更多</a>
+        <a href="index.html#contact" class="btn btn-outline" style="margin-left:12px">联系销售</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item ql-reveal">
+          <div class="stat-num">1000+</div>
+          <div class="stat-label">专业标注团队</div>
+        </div>
+        <div class="stat-item ql-reveal ql-d1">
+          <div class="stat-num">99.5%</div>
+          <div class="stat-label">交付准确率</div>
+        </div>
+        <div class="stat-item ql-reveal ql-d2">
+          <div class="stat-num">4</div>
+          <div class="stat-label">全国交付基地</div>
+        </div>
+        <div class="stat-item ql-reveal ql-d3">
+          <div class="stat-num">6年+</div>
+          <div class="stat-label">行业深耕经验</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="solutions">
+    <div class="container">
+      <h2 class="section-title ql-reveal">行业解决方案</h2>
+      <p class="section-subtitle ql-reveal ql-d1">针对不同行业定制 AI 数据解决方案，赋能五大核心行业</p>
+      <div class="solution-grid">
+        <div class="solution-item ql-reveal ql-d1">
+          <div class="solution-icon">🚗</div>
+          <h4>智能驾驶</h4>
+          <p>L2-L4 级 3D 点云、4D 车道线标注，采用时空融合算法实现高精度动态建模，适配城市复杂路况。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d2">
+          <div class="solution-icon">💬</div>
+          <h4>AI 大模型</h4>
+          <p>文本清洗、图像精标、RLHF 标注及模型评估全流程服务，支撑大模型优化迭代，为多家知名大模型公司提供数据支持。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d3">
+          <div class="solution-icon">🎬</div>
+          <h4>AI 视频/动漫</h4>
+          <p>支持多种风格一键生成与视频特效制作，服务于影视 IP 衍生开发、商业广告创意优化、动漫游戏等领域。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d4">
+          <div class="solution-icon">🏥</div>
+          <h4>医疗健康</h4>
+          <p>医学影像标注、电子病历结构化、医学大模型训练数据、辅助诊断系统开发及健康监测数据服务。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d5">
+          <div class="solution-icon">💰</div>
+          <h4>金融科技</h4>
+          <p>智能风控、身份认证（人脸/掌纹/虹膜）、智能客服、舆情分析等金融场景的数据采集与标注服务。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d6">
+          <div class="solution-icon">🏙️</div>
+          <h4>智慧城市</h4>
+          <p>智能安防、行为分析、智慧交通、环境监测等领域的高质量视频图像数据采集与标注。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d6">
+          <div class="solution-icon">🏭</div>
+          <h4>工业制造</h4>
+          <p>工业机器人视觉、质量检测、自动化设计，结合 AI 生成式设计与云端迭代优化，加速智能制造转型。</p>
+        </div>
+        <div class="solution-item ql-reveal ql-d6">
+          <div class="solution-icon">🛒</div>
+          <h4>电商零售</h4>
+          <p>无人商店、商品分类、智能客服、推荐系统等电商场景 AI 数据服务，助推新零售 AI 化进程。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title ql-reveal">合作伙伴</h2>
+      <p class="section-subtitle ql-reveal ql-d1">与行业领先企业携手共建 AI 数据生态</p>
+      <div class="partner-row">
+        <img src="assets/images/img_065.svg" alt="合作伙伴" height="33" loading="lazy"
+          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
+          onmouseout="this.style.opacity=0.5">
+        <img src="assets/images/img_066.svg" alt="合作伙伴" height="33" loading="lazy"
+          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
+          onmouseout="this.style.opacity=0.5">
+        <img src="assets/images/img_018.svg" alt="合作伙伴" height="33" loading="lazy"
+          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
+          onmouseout="this.style.opacity=0.5">
+        <img src="assets/images/img_019.svg" alt="合作伙伴" height="33" loading="lazy"
+          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
+          onmouseout="this.style.opacity=0.5">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="blog">
+    <div class="container">
+      <h2 class="section-title ql-reveal">资源中心</h2>
+      <p class="section-subtitle ql-reveal ql-d1">前沿科技、产品动态与行业洞察</p>
+      <div class="blog-grid">
+        <div class="blog-card ql-reveal ql-d1">
+          <span class="blog-tag">前沿科技</span>
+          <h4>政策东风赋能数据产业，清珞未来精准卡位 AI 数据赛道</h4>
+          <div class="blog-meta">
+            <span>前沿资讯</span>
+            <span>2026-06-10</span>
+          </div>
+        </div>
+        <div class="blog-card ql-reveal ql-d2">
+          <span class="blog-tag">清珞未来动态</span>
+          <h4>清珞未来以三大平台为核，解锁 AI 商业化新路径</h4>
+          <div class="blog-meta">
+            <span>产品资讯</span>
+            <span>2026-04-24</span>
+          </div>
+        </div>
+        <div class="blog-card ql-reveal ql-d3">
+          <span class="blog-tag">清珞未来动态</span>
+          <h4>发布 | 规模化调用人类顶尖智慧，清珞未来 EnableExpert AI 大模型专家平台正式上线！</h4>
+          <div class="blog-meta">
+            <span>清珞未来动态</span>
+            <span>2026-04-15</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="cta-banner ql-reveal">
+        <h2>智绘数据，标注未来</h2>
+        <p>清珞未来 — AI 数据服务全链路解决方案提供商</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+          <a href="index.html#contact" class="btn btn-primary">联系销售</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="chat-widget">
+    <button class="chat-btn" onclick="alert('欢迎光临清珞未来官方网站！\n有什么可以帮您的？\n\n📞 400-XXX-XXXX\n✉️ contact@qingluoai.com')">
+      <img src="assets/images/img_051.svg" alt="在线咨询">
+    </button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-text">清珞未来</span>
+          <p>智绘数据，标注未来<br>AI 数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p>
+          <div class="footer-contact">
+            <span>📞 400-XXX-XXXX</span>
+            <span>✉️ contact@qingluoai.com</span>
+            <span>📍 河北省石家庄市</span>
+          </div>
+        </div>
+        <div>
+          <h4>数据服务</h4>
+          <a href="services.html">数据标注服务</a>
+          <a href="services.html">数据采集服务</a>
+          <a href="services.html">大模型数据服务</a>
+          <a href="services.html">内容审核服务</a>
+        </div>
+        <div>
+          <h4>解决方案</h4>
+          <a href="solutions.html">智能驾驶</a>
+          <a href="solutions.html">大语言模型</a>
+          <a href="solutions.html">智慧医疗</a>
+          <a href="solutions.html">智慧安防</a>
+        </div>
+        <div>
+          <h4>关于我们</h4>
+          <a href="about.html">公司简介</a>
+          <a href="about.html">核心团队</a>
+          <a href="technology.html">技术与保障</a>
+          <a href="index.html#contact">联系我们</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () { function r() { var e = document.querySelectorAll('.ql-reveal'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+  </script>
+</body>
+
+</html>
