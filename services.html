@@ -648,7 +648,7 @@
 
   <section class="section">
     <div class="container">
-      <div class="service-block ql-reveal">
+      <div class="service-block ql-reveal" style="grid-template-columns:1fr 1fr;gap:24px;padding:32px">
         <div><span class="tag">CORE SERVICE</span>
           <h3>数据标注服务</h3>
           <p>覆盖 2D/3D/4D 标注、语音转写、文本分类、视频标注等全模态类型。依托自研平台与三级质控体系，确保交付数据准确率稳定在 99.5% 以上。</p>
@@ -659,31 +659,34 @@
             <li>RLHF 标注、模型评估与排序</li>
           </ul>
         </div>
-        <div><img src="assets/ppt_images/slide10_18.png" alt="数据标注" class="service-img" loading="lazy">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div class="card" style="padding:16px">
-              <h3 style="font-size:14px">2D 图像标注</h3>
-              <p style="font-size:12px">目标检测、语义分割、关键点标记</p>
-            </div>
-            <div class="card" style="padding:16px">
-              <h3 style="font-size:14px">3D 点云标注</h3>
-              <p style="font-size:12px">3D 目标检测、激光雷达标注</p>
-            </div>
+        <div><img src="assets/ppt_images/slide10_18.png" alt="数据标注" class="service-img" loading="lazy"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start">
+          <div class="card" style="padding:16px">
+            <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">2D 图像标注</h3>
+            <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">目标检测、语义分割、关键点标记</p>
           </div>
-          <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center">自研标注平台支持全模态标注类型</p>
-          <div style="margin-top:16px">
-            <div class="card" style="padding:16px;margin-bottom:12px">
-              <img src="assets/ppt_images/slide10_x13.png" alt="2D图像标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
-              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">2D 图像标注 — 目标检测（画框）、语义分割、关键点标记，应用于自动驾驶、人脸识别、医学影像分析等领域</p>
-            </div>
-            <div class="card" style="padding:16px;margin-bottom:12px">
-              <img src="assets/ppt_images/slide10_x14.png" alt="3D点云标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
-              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">3D 点云标注 — 3D 目标检测、激光雷达标注、4D 车道线标注，服务于自动驾驶与智能驾驶领域</p>
-            </div>
-            <div class="card" style="padding:16px">
-              <img src="assets/ppt_images/slide09_x33.png" alt="智能标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
-              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">多领域专项服务 — 覆盖智能驾驶、AI 大模型、AI 视频/动漫、智慧医疗等重点行业</p>
-            </div>
+          <div class="card" style="padding:16px">
+            <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">3D 点云标注</h3>
+            <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">3D 目标检测、激光雷达标注</p>
+          </div>
+          <div class="card" style="padding:16px">
+            <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">语音转写标注</h3>
+            <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">语音转写、情绪识别、方言识别</p>
+          </div>
+          <div class="card" style="padding:16px">
+            <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">RLHF 标注</h3>
+            <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">模型评估、排序标注、偏好对齐</p>
+          </div>
+        </div>
+        <div><img src="assets/ppt_images/slide10_x13.png" alt="2D图像标注" class="service-img" style="max-height:320px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy">
+          <p style="margin-top:6px;color:rgba(155,150,176,0.6);font-size:12px;text-align:center">2D 图像标注 — 目标检测（画框）、语义分割、关键点标记</p>
+        </div>
+        <div style="grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><img src="assets/ppt_images/slide10_x14.png" alt="3D点云标注" class="service-img" loading="lazy">
+            <p style="margin-top:6px;color:rgba(155,150,176,0.6);font-size:12px;text-align:center">3D 点云标注 — 3D 目标检测、激光雷达标注、4D 车道线标注</p>
+          </div>
+          <div><img src="assets/ppt_images/slide09_x33.png" alt="智能标注" class="service-img" loading="lazy">
+            <p style="margin-top:6px;color:rgba(155,150,176,0.6);font-size:12px;text-align:center">多领域专项服务 — 覆盖智能驾驶、AI 大模型、AI 视频/动漫、智慧医疗等重点行业</p>
           </div>
         </div>
       </div>
@@ -727,7 +730,7 @@
           <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center;margin-top:8px">从 SFT 到 RLHF，全流程大模型数据服务</p>
         </div>
       </div>
-      <div class="service-block ql-reveal ql-d3">
+      <div class="service-block ql-reveal ql-d3" style="align-items:start">
         <div><span class="tag">CORE SERVICE</span>
           <h3>内容审核 &amp; AI 视频/动漫</h3>
           <p>通过 AI 模型预审 + 人工复核双重保障机制，高效识别违规内容。支持多种 AI 视频/动漫风格生成，为互联网企业提供虚拟数字人、AR/VR、动画与游戏等数据支持。</p>
@@ -737,8 +740,18 @@
             <li>AI 视频风格迁移与特效生成</li>
             <li>虚拟数字人与 AR/VR 场景数据</li>
           </ul>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">内容审核</h3>
+              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">AI 预审 + 人工复核，7×24 小时在线</p>
+            </div>
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">AI 视频/动漫</h3>
+              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">视频风格迁移、虚拟数字人、AR/VR</p>
+            </div>
+          </div>
         </div>
-        <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" loading="lazy">
+        <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" style="max-height:400px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy">
           <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center;margin-top:8px">AI 模型预审 + 人工复核双重保障机制</p>
         </div>
       </div>
@@ -780,6 +793,10 @@
           <h4>交付复盘</h4>
           <p>交付与复盘优化</p>
         </div>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <p style="color:rgba(155,150,176,0.5);font-size:14px;margin-bottom:16px">从需求对接到交付复盘，全流程标准化、规范化管理</p>
+        <a href="contact.html" class="btn btn-primary">立即咨询</a>
       </div>
     </div>
   </section>
