@@ -694,11 +694,7 @@
       </div>
       <div style="margin-top:24px" class="img-grid-2">
         <img src="assets/ppt_images/slide02_00.png" alt="公司封面" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide04_00.png" alt="公司战略布局" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide01_03.png" alt="清珞未来" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide07_00.png" alt="核心业务板块" class="clickable ql-reveal ql-d1" loading="lazy">
+        <img src="assets/ppt_images/slide06_x05.png" alt="公司战略布局" class="clickable ql-reveal ql-d1" loading="lazy">
       </div>
     </div>
   </section>
@@ -740,11 +736,7 @@
         </div>
       </div>
       <div style="margin-top:24px;text-align:center">
-        <img src="assets/ppt_images/slide06_x05.png" alt="战略布局与核心团队" class="clickable ql-reveal"
-          style="max-width:700px;display:inline-block" loading="lazy">
-      </div>
-      <div style="margin-top:16px;text-align:center">
-        <img src="assets/ppt_images/slide24_00.png" alt="基地与文化" class="clickable ql-reveal"
+        <img src="assets/ppt_images/slide04_00.png" alt="战略布局" class="clickable ql-reveal"
           style="max-width:700px;display:inline-block" loading="lazy">
       </div>
     </div>
@@ -788,47 +780,61 @@
           <div class="base-icon">🏢</div>
           <div>
             <h4>石家庄总部</h4>
-            <p>标准化办公空间，明亮标注工位、专业质检区、现代化会议室、安全机房。</p>
+            <p>标准化办公空间，明亮标注工位、专业质检区、现代化会议室、安全机房，配备智能化办公与中央空调系统。</p>
           </div>
         </div>
         <div class="base-item ql-reveal ql-d2">
           <div class="base-icon">🏭</div>
           <div>
             <h4>唐山基地</h4>
-            <p>位于唐山市核心区域，占地超1000㎡，配备先进数据标注设备与专业化团队。</p>
+            <p>位于唐山市核心区域，占地超1000㎡，配备先进数据标注设备与专业化团队，拥有标准化标注车间与ISO质管体系。</p>
           </div>
         </div>
         <div class="base-item ql-reveal ql-d3">
           <div class="base-icon">🏔️</div>
           <div>
             <h4>新疆基地</h4>
-            <p>西部多语种采集标注中心，专业少数民族语言标注团队。</p>
+            <p>西部多语种采集标注中心，专注少数民族语言与跨境数据服务，专业少数民族语言标注团队。</p>
           </div>
         </div>
         <div class="base-item ql-reveal ql-d4">
           <div class="base-icon">🌾</div>
           <div>
             <h4>内蒙基地</h4>
-            <p>北方规模化交付中心，项目交付准确率稳定保持99.5%以上。</p>
+            <p>北方规模化交付中心，团队稳定成本优，适合长期大规模项目，交付准确率稳定保持99.5%以上。</p>
           </div>
         </div>
       </div>
-      <div style="margin-top:24px" class="img-grid-2">
-        <img src="assets/ppt_images/slide25_13.png" alt="石家庄总部" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide26_00.png" alt="唐山基地全景" class="clickable ql-reveal ql-d1" loading="lazy">
+      <style>
+        .base-marquee { overflow:hidden; position:relative; margin-top:24px; mask-image:linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%) }
+        .base-marquee-inner { display:flex; gap:24px; width:max-content; animation:baseScroll 25s linear infinite; will-change:transform }
+        .base-marquee.paused .base-marquee-inner { animation-play-state:paused }
+        @keyframes baseScroll { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
+        .base-marquee-inner img { height:280px; width:auto; flex-shrink:0; border-radius:12px; border:1px solid rgba(255,255,255,0.06); opacity:0.7; transition:opacity 0.3s ease, transform 0.3s ease; cursor:pointer }
+        .base-marquee-inner img:hover { opacity:1; transform:scale(1.03) }
+      </style>
+      <div class="base-marquee" id="baseMarquee">
+        <div class="base-marquee-inner">
+          <img src="assets/ppt_images/slide25_13.png" alt="石家庄总部" loading="lazy">
+          <img src="assets/ppt_images/slide25_11.jpg" alt="石家庄总部办公环境" loading="lazy">
+          <img src="assets/ppt_images/slide25_14.png" alt="石家庄总部设施" loading="lazy">
+          <img src="assets/ppt_images/slide26_00.png" alt="唐山基地全景" loading="lazy">
+          <img src="assets/ppt_images/slide26_03.png" alt="智能化数据中心" loading="lazy">
+          <img src="assets/ppt_images/slide28_x00.png" alt="新疆基地" loading="lazy">
+          <img src="assets/ppt_images/slide27_05.png" alt="基地工作场景" loading="lazy">
+          <img src="assets/ppt_images/slide25_12.jpg" alt="基地环境" loading="lazy">
+          <!-- duplicated for seamless loop -->
+          <img src="assets/ppt_images/slide25_13.png" alt="石家庄总部" loading="lazy">
+          <img src="assets/ppt_images/slide25_11.jpg" alt="石家庄总部办公环境" loading="lazy">
+          <img src="assets/ppt_images/slide25_14.png" alt="石家庄总部设施" loading="lazy">
+          <img src="assets/ppt_images/slide26_00.png" alt="唐山基地全景" loading="lazy">
+          <img src="assets/ppt_images/slide26_03.png" alt="智能化数据中心" loading="lazy">
+          <img src="assets/ppt_images/slide28_x00.png" alt="新疆基地" loading="lazy">
+          <img src="assets/ppt_images/slide27_05.png" alt="基地工作场景" loading="lazy">
+          <img src="assets/ppt_images/slide25_12.jpg" alt="基地环境" loading="lazy">
+        </div>
       </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide25_11.jpg" alt="石家庄总部办公环境" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide25_14.png" alt="石家庄总部设施" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide28_x00.png" alt="新疆基地" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide26_03.png" alt="内蒙基地" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide27_05.png" alt="基地工作场景" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide25_12.jpg" alt="唐山基地环境" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
+      <script>(function(){var e=document.getElementById('baseMarquee');if(!e)return;e.onmouseenter=function(){e.classList.add('paused')};e.onmouseleave=function(){e.classList.remove('paused')}})();</script>
     </div>
   </section>
 
@@ -853,29 +859,25 @@
           <p>优秀员工表彰与激励机制，让每一位奋斗者与公司共同成长。</p>
         </div>
       </div>
-      <div style="margin-top:24px;text-align:center">
-        <img src="assets/ppt_images/slide29_12.png" alt="员工文化活动" class="clickable ql-reveal"
-          style="max-width:600px;display:inline-block" loading="lazy">
-        <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">员工文化活动剪影 — 快乐工作、专业成长、共享成果</p>
-      </div>
-      <div class="img-grid-2" style="margin-top:20px">
-        <div style="text-align:center">
-          <img src="assets/ppt_images/slide23_11.png" alt="三级质控体系" class="clickable ql-reveal" loading="lazy">
-          <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">三级质控体系 — 标注员自检、团队交叉互检、专家终审层层把关</p>
+      <style>
+        .culture-marquee { overflow:hidden; position:relative; margin-top:24px; mask-image:linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%) }
+        .culture-marquee-inner { display:flex; gap:24px; width:max-content; animation:cultureScroll 20s linear infinite; will-change:transform }
+        .culture-marquee.paused .culture-marquee-inner { animation-play-state:paused }
+        @keyframes cultureScroll { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
+        .culture-marquee-inner img { height:300px; width:auto; flex-shrink:0; border-radius:12px; border:1px solid rgba(255,255,255,0.06); opacity:0.7; transition:opacity 0.3s ease; cursor:pointer }
+      </style>
+      <div class="culture-marquee" id="cultureMarquee">
+        <div class="culture-marquee-inner">
+          <img src="assets/ppt_images/slide29_12.png" alt="员工文化活动" loading="lazy">
+          <img src="assets/ppt_images/slide29_13.png" alt="员工团建活动" loading="lazy">
+          <img src="assets/ppt_images/slide29_x11.png" alt="员工风采" loading="lazy">
+          <!-- duplicated for seamless loop -->
+          <img src="assets/ppt_images/slide29_12.png" alt="员工文化活动" loading="lazy">
+          <img src="assets/ppt_images/slide29_13.png" alt="员工团建活动" loading="lazy">
+          <img src="assets/ppt_images/slide29_x11.png" alt="员工风采" loading="lazy">
         </div>
-        <div style="text-align:center">
-          <img src="assets/ppt_images/slide22_11.png" alt="标准化SOP流程" class="clickable ql-reveal ql-d1" loading="lazy">
-          <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">标准化 SOP 流程 — 需求对接→方案制定→试标验收→专项培训→批量标注→交付复盘</p>
-        </div>
       </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide29_13.png" alt="员工团建活动" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide29_03.png" alt="团队文化活动" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
-      <div style="margin-top:16px" class="img-grid-2">
-        <img src="assets/ppt_images/slide29_x11.png" alt="员工风采" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide28_x01.png" alt="基地团队" class="clickable ql-reveal ql-d1" loading="lazy">
-      </div>
+      <script>(function(){var e=document.getElementById('cultureMarquee');if(!e)return;e.onmouseenter=function(){e.classList.add('paused')};e.onmouseleave=function(){e.classList.remove('paused')}})();</script>
     </div>
   </section>
 
