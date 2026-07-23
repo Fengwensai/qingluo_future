@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     *,
     *::before,
@@ -51,8 +52,8 @@
     }
 
     .nav-wrapper {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 5px;
       left: 0;
       right: 0;
       z-index: 99999;
@@ -64,20 +65,19 @@
     .nav-pill {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 10px 24px;
-      background: rgba(15, 5, 40, 0.92);
+      gap: 24px;
+      padding: 12px 28px;
+      background: #0f0528;
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 40px;
-      backdrop-filter: blur(20px);
       pointer-events: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.15)
     }
 
     .nav-pill a {
-      padding: 4px 12px;
+      padding: 5px 14px;
       color: rgba(244, 240, 255, 0.8);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -91,23 +91,17 @@
       background: rgba(112, 0, 255, 0.25)
     }
 
-    .nav-spacer {
-      height: 0px
-    }
-
     .page {
       animation: fadeIn 0.4s ease both
     }
 
     @keyframes fadeIn {
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity: 0
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity: 1
       }
     }
 
@@ -148,7 +142,8 @@
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      padding-top: 48px
     }
 
     .hero-bg {
@@ -265,6 +260,12 @@
 
     img.clickable:hover {
       transform: scale(1.02)
+    }
+
+    .img-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
     }
 
     .team-grid {
@@ -387,7 +388,7 @@
 
     .footer-inner {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 32px
     }
@@ -612,6 +613,44 @@
         grid-template-columns: 1fr
       }
     }
+
+    /* ===== Back to Top ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .back-to-top button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7000FF, #a855f7);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.4);
+      transition: all 0.3s ease;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1
+    }
+
+    .back-to-top button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.5)
+    }
   </style>
 </head>
 
@@ -620,14 +659,13 @@
   <div class="nav-wrapper">
     <div class="nav-pill">
       <a href="index.html">首页</a>
-      <a href="about.html" class="active">关于我们</a>
       <a href="services.html">数据服务</a>
       <a href="solutions.html">解决方案</a>
       <a href="technology.html">技术与保障</a>
-      <a href="index.html#contact">联系我们</a>
+      <a href="about.html" class="active">关于我们</a>
+      <a href="contact.html">联系我们</a>
     </div>
   </div>
-  <div class="nav-spacer"></div>
 
   <section class="hero">
     <div class="hero-bg"></div>
@@ -654,9 +692,13 @@
           <p>全国布局四大数据处理基地（石家庄、唐山、新疆、内蒙），拥有 1000+ 专业标注团队，年培养标注人才 50,000+，服务企业客户超 500 家。</p>
         </div>
       </div>
-      <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="margin-top:24px" class="img-grid-2">
         <img src="assets/ppt_images/slide02_00.png" alt="公司封面" class="clickable ql-reveal" loading="lazy">
         <img src="assets/ppt_images/slide04_00.png" alt="公司战略布局" class="clickable ql-reveal ql-d1" loading="lazy">
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide01_03.png" alt="清珞未来" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide07_00.png" alt="核心业务板块" class="clickable ql-reveal ql-d1" loading="lazy">
       </div>
     </div>
   </section>
@@ -699,7 +741,11 @@
       </div>
       <div style="margin-top:24px;text-align:center">
         <img src="assets/ppt_images/slide06_x05.png" alt="战略布局与核心团队" class="clickable ql-reveal"
-          style="max-width:600px;display:inline-block" loading="lazy">
+          style="max-width:700px;display:inline-block" loading="lazy">
+      </div>
+      <div style="margin-top:16px;text-align:center">
+        <img src="assets/ppt_images/slide24_00.png" alt="基地与文化" class="clickable ql-reveal"
+          style="max-width:700px;display:inline-block" loading="lazy">
       </div>
     </div>
   </section>
@@ -767,9 +813,21 @@
           </div>
         </div>
       </div>
-      <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="margin-top:24px" class="img-grid-2">
         <img src="assets/ppt_images/slide25_13.png" alt="石家庄总部" class="clickable ql-reveal" loading="lazy">
         <img src="assets/ppt_images/slide26_00.png" alt="唐山基地全景" class="clickable ql-reveal ql-d1" loading="lazy">
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide25_11.jpg" alt="石家庄总部办公环境" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide25_14.png" alt="石家庄总部设施" class="clickable ql-reveal ql-d1" loading="lazy">
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide28_x00.png" alt="新疆基地" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide26_03.png" alt="内蒙基地" class="clickable ql-reveal ql-d1" loading="lazy">
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide27_05.png" alt="基地工作场景" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide25_12.jpg" alt="唐山基地环境" class="clickable ql-reveal ql-d1" loading="lazy">
       </div>
     </div>
   </section>
@@ -797,10 +855,33 @@
       </div>
       <div style="margin-top:24px;text-align:center">
         <img src="assets/ppt_images/slide29_12.png" alt="员工文化活动" class="clickable ql-reveal"
-          style="transform:rotate(-90deg);max-width:500px;display:inline-block" loading="lazy">
+          style="max-width:600px;display:inline-block" loading="lazy">
+        <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">员工文化活动剪影 — 快乐工作、专业成长、共享成果</p>
+      </div>
+      <div class="img-grid-2" style="margin-top:20px">
+        <div style="text-align:center">
+          <img src="assets/ppt_images/slide23_11.png" alt="三级质控体系" class="clickable ql-reveal" loading="lazy">
+          <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">三级质控体系 — 标注员自检、团队交叉互检、专家终审层层把关</p>
+        </div>
+        <div style="text-align:center">
+          <img src="assets/ppt_images/slide22_11.png" alt="标准化SOP流程" class="clickable ql-reveal ql-d1" loading="lazy">
+          <p style="margin-top:8px;color:rgba(155,150,176,0.6);font-size:12px">标准化 SOP 流程 — 需求对接→方案制定→试标验收→专项培训→批量标注→交付复盘</p>
+        </div>
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide29_13.png" alt="员工团建活动" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide29_03.png" alt="团队文化活动" class="clickable ql-reveal ql-d1" loading="lazy">
+      </div>
+      <div style="margin-top:16px" class="img-grid-2">
+        <img src="assets/ppt_images/slide29_x11.png" alt="员工风采" class="clickable ql-reveal" loading="lazy">
+        <img src="assets/ppt_images/slide28_x01.png" alt="基地团队" class="clickable ql-reveal ql-d1" loading="lazy">
       </div>
     </div>
   </section>
+
+  <div class="back-to-top" id="backToTop">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -821,8 +902,13 @@
             href="technology.html">三级质控</a><a href="technology.html">项目经验</a>
         </div>
         <div>
-          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">文化理念</a><a
-            href="index.html#contact">联系我们</a>
+          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="about.html#culture">文化理念</a><a
+            href="about.html#bases">基地分布</a>
+        </div>
+        <div>
+          <h4>联系我们</h4><a href="contact.html">在线咨询</a><a href="contact.html">商务合作</a>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">📞 400-XXX-XXXX</span>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">✉️ contact@qingluoai.com</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -833,6 +919,15 @@
 
   <script>
     (function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+
+    /* Back to top */
+    (function () {
+      var btn = document.getElementById('backToTop');
+      if (!btn) return;
+      var toggle = function () { btn.classList.toggle('show', window.scrollY > 400) };
+      window.addEventListener('scroll', toggle);
+      toggle();
+    })();
   </script>
 </body>
 

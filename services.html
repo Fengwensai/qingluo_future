@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
     *,
     *::before,
@@ -51,8 +52,8 @@
     }
 
     .nav-wrapper {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      top: 5px;
       left: 0;
       right: 0;
       z-index: 99999;
@@ -66,12 +67,11 @@
       align-items: center;
       gap: 20px;
       padding: 10px 24px;
-      background: rgba(15, 5, 40, 0.92);
+      background: #0f0528;
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 40px;
-      backdrop-filter: blur(20px);
       pointer-events: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.15)
     }
 
     .nav-pill a {
@@ -91,23 +91,17 @@
       background: rgba(112, 0, 255, 0.25)
     }
 
-    .nav-spacer {
-      height: 0px
-    }
-
     .page {
       animation: fadeIn 0.4s ease both
     }
 
     @keyframes fadeIn {
       from {
-        opacity: 0;
-        transform: translateY(12px)
+        opacity: 0
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0)
+        opacity: 1
       }
     }
 
@@ -148,7 +142,8 @@
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      padding-top: 48px
     }
 
     .hero-bg {
@@ -478,7 +473,7 @@
 
     .footer-inner {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 32px
     }
@@ -595,17 +590,53 @@
         grid-template-columns: 1fr
       }
     }
+
+    /* ===== Back to Top ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .back-to-top button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7000FF, #a855f7);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.4);
+      transition: all 0.3s ease;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1
+    }
+
+    .back-to-top button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.5)
+    }
   </style>
 </head>
 
 <body class="page">
   <div class="nav-wrapper">
-    <div class="nav-pill"><a href="index.html">首页</a><a href="about.html">关于我们</a><a href="services.html"
+    <div class="nav-pill"><a href="index.html">首页</a><a href="services.html"
         class="active">数据服务</a><a href="solutions.html">解决方案</a><a href="technology.html">技术与保障</a><a
-        href="index.html#contact">联系我们</a></div>
+        href="about.html">关于我们</a><a href="contact.html">联系我们</a></div>
   </div>
-  <div class="nav-spacer"></div>
-
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -629,7 +660,7 @@
           </ul>
         </div>
         <div><img src="assets/ppt_images/slide10_18.png" alt="数据标注" class="service-img" loading="lazy">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div class="card" style="padding:16px">
               <h3 style="font-size:14px">2D 图像标注</h3>
               <p style="font-size:12px">目标检测、语义分割、关键点标记</p>
@@ -637,6 +668,21 @@
             <div class="card" style="padding:16px">
               <h3 style="font-size:14px">3D 点云标注</h3>
               <p style="font-size:12px">3D 目标检测、激光雷达标注</p>
+            </div>
+          </div>
+          <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center">自研标注平台支持全模态标注类型</p>
+          <div style="margin-top:16px">
+            <div class="card" style="padding:16px;margin-bottom:12px">
+              <img src="assets/ppt_images/slide10_x13.png" alt="2D图像标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
+              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">2D 图像标注 — 目标检测（画框）、语义分割、关键点标记，应用于自动驾驶、人脸识别、医学影像分析等领域</p>
+            </div>
+            <div class="card" style="padding:16px;margin-bottom:12px">
+              <img src="assets/ppt_images/slide10_x14.png" alt="3D点云标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
+              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">3D 点云标注 — 3D 目标检测、激光雷达标注、4D 车道线标注，服务于自动驾驶与智能驾驶领域</p>
+            </div>
+            <div class="card" style="padding:16px">
+              <img src="assets/ppt_images/slide09_x33.png" alt="智能标注" style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.06)" loading="lazy">
+              <p style="margin-top:8px;color:rgba(155,150,176,0.7);font-size:13px;text-align:center">多领域专项服务 — 覆盖智能驾驶、AI 大模型、AI 视频/动漫、智慧医疗等重点行业</p>
             </div>
           </div>
         </div>
@@ -653,7 +699,7 @@
           </ul>
         </div>
         <div><img src="assets/ppt_images/slide20_20.png" alt="采集平台" class="service-img" loading="lazy">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div class="card" style="padding:16px">
               <h3 style="font-size:14px">多场景采集</h3>
               <p style="font-size:12px">车载语音、商务对话、智能家居等</p>
@@ -663,6 +709,7 @@
               <p style="font-size:12px">中文方言、少数民族语言、小语种</p>
             </div>
           </div>
+          <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center">四大基地协同，支持多场景多语言数据采集</p>
         </div>
       </div>
       <div class="service-block ql-reveal ql-d2">
@@ -676,7 +723,9 @@
             <li>Agent 能力数据生产</li>
           </ul>
         </div>
-        <div><img src="assets/ppt_images/slide09_35.png" alt="大模型数据" class="service-img" loading="lazy"></div>
+        <div><img src="assets/ppt_images/slide09_35.png" alt="大模型数据" class="service-img" loading="lazy">
+          <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center;margin-top:8px">从 SFT 到 RLHF，全流程大模型数据服务</p>
+        </div>
       </div>
       <div class="service-block ql-reveal ql-d3">
         <div><span class="tag">CORE SERVICE</span>
@@ -689,7 +738,9 @@
             <li>虚拟数字人与 AR/VR 场景数据</li>
           </ul>
         </div>
-        <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" loading="lazy"></div>
+        <div><img src="assets/ppt_images/slide15_g09_00.png" alt="AI视频/动漫" class="service-img" loading="lazy">
+          <p style="color:rgba(155,150,176,0.5);font-size:12px;text-align:center;margin-top:8px">AI 模型预审 + 人工复核双重保障机制</p>
+        </div>
       </div>
     </div>
   </section>
@@ -730,10 +781,12 @@
           <p>交付与复盘优化</p>
         </div>
       </div>
-      <div style="margin-top:24px;text-align:center"><img src="assets/ppt_images/slide22_11.png" alt="SOP流程"
-          class="service-img ql-reveal" style="max-width:500px;display:inline-block" loading="lazy"></div>
     </div>
   </section>
+
+  <div class="back-to-top" id="backToTop">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
+  </div>
 
   <footer class="footer">
     <div class="container">
@@ -754,8 +807,13 @@
             href="technology.html">三级质控</a><a href="technology.html">项目经验</a>
         </div>
         <div>
-          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="technology.html">文化理念</a><a
-            href="index.html#contact">联系我们</a>
+          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="about.html#culture">文化理念</a><a
+            href="about.html#bases">基地分布</a>
+        </div>
+        <div>
+          <h4>联系我们</h4><a href="contact.html">在线咨询</a><a href="contact.html">商务合作</a>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">📞 400-XXX-XXXX</span>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">✉️ contact@qingluoai.com</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -764,7 +822,17 @@
     </div>
   </footer>
 
-  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();</script>
+  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+
+    /* Back to top */
+    (function () {
+      var btn = document.getElementById('backToTop');
+      if (!btn) return;
+      var toggle = function () { btn.classList.toggle('show', window.scrollY > 400) };
+      window.addEventListener('scroll', toggle);
+      toggle();
+    })();
+  </script>
 </body>
 
 </html>

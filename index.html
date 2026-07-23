@@ -7,219 +7,34 @@
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <meta name="description" content="河北清珞未来信息技术有限公司，AI数据服务全链路解决方案提供商，致力于提供数据标注、数据采集、大模型数据、内容审核等专业AI数据服务。">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-      background: #030014;
-      color: #fff;
-      overflow-x: hidden;
-      line-height: 1.6
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    ::selection {
-      color: #fff;
-      background: #4a428b
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #030014
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #7000FF;
-      border-radius: 3px
-    }
-
-    /* ===== Nav ===== */
-    .nav-wrapper {
-      position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 99999;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      padding-top: 16px
-    }
-
-    .nav-pill {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 10px 24px;
-      background: rgba(15, 5, 40, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 40px;
-      backdrop-filter: blur(20px);
-      pointer-events: auto;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
-    }
-
-    .nav-pill a {
-      padding: 4px 12px;
-      color: rgba(244, 240, 255, 0.8);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      border-radius: 20px
-    }
-
-    .nav-pill a:hover,
-    .nav-pill a.active {
-      color: #fff;
-      background: rgba(112, 0, 255, 0.25)
-    }
-
-    /* ===== Animations ===== */
-    .page {
-      animation: fadeIn 0.4s ease both
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    .ql-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .7s cubic-bezier(.25, .1, .25, 1), transform .7s cubic-bezier(.25, .1, .25, 1)
-    }
-
-    .ql-reveal.show {
-      opacity: 1;
-      transform: translateY(0)
-    }
-
-    .ql-d1 {
-      transition-delay: .1s
-    }
-
-    .ql-d2 {
-      transition-delay: .2s
-    }
-
-    .ql-d3 {
-      transition-delay: .3s
-    }
-
-    .ql-d4 {
-      transition-delay: .4s
-    }
-
-    .ql-d5 {
-      transition-delay: .5s
-    }
-
-    .ql-d6 {
-      transition-delay: .6s
-    }
-
-    /* ===== Layout ===== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    .section {
-      padding: 80px 0;
-      position: relative
-    }
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(112, 0, 255, 0.15), transparent);
-      pointer-events: none
-    }
-
-    .section-alt {
-      background: linear-gradient(180deg, rgba(117, 73, 255, 0.035) 0%, transparent 50%)
-    }
-
-    .section-glow {
-      background: linear-gradient(180deg, rgba(133, 102, 255, 0.06) 0%, transparent 50%)
-    }
-    .section-glow::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 300px;
-      background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(112, 0, 255, 0.08) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 0
-    }
-    .section-glow > .container {
-      position: relative;
-      z-index: 1
-    }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 600;
-      text-align: center;
-      color: #fff;
-      margin-bottom: 12px;
-      letter-spacing: 1px
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: rgba(255, 255, 255, 0.55);
-      font-size: 15px;
-      max-width: 650px;
-      margin: 0 auto 40px;
-      letter-spacing: 1px
-    }
-
-    /* ===== Hero ===== */
+    /* ===== Hero (index only) ===== */
     .hero {
       min-height: 80vh;
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      padding-top: 48px
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(112, 0, 255, 0.4) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(117, 73, 255, 0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(117, 73, 255, 0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(117, 73, 255, 0.25) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 50% 100%, rgba(117, 73, 255, 0.08) 0%, transparent 60%);
       z-index: 0
     }
 
@@ -274,44 +89,6 @@
       font-size: 13px;
       margin-bottom: 20px;
       letter-spacing: 2px
-    }
-
-    /* ===== Buttons ===== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 32px;
-      border-radius: 40px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
-      letter-spacing: 1px
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #7000FF, #a855f7);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.3)
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.45)
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.8)
-    }
-
-    .btn-outline:hover {
-      border-color: #7000FF;
-      color: #fff;
-      background: rgba(112, 0, 255, 0.1)
     }
 
     .hero-cta {
@@ -379,106 +156,6 @@
       font-size: 13px;
       color: rgba(155, 150, 176, 0.8);
       line-height: 1.7
-    }
-
-    /* ===== Cards ===== */
-    .card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 28px 24px;
-      transition: all 0.3s ease
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(112, 0, 255, 0.3);
-      box-shadow: 0 20px 60px rgba(117, 73, 255, 0.08)
-    }
-
-    /* ===== Service Block ===== */
-    .service-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 40px;
-      padding: 36px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px
-    }
-
-    .service-block.reverse {
-      grid-template-columns: 1fr 1fr;
-      direction: rtl
-    }
-
-    .service-block.reverse>* {
-      direction: ltr
-    }
-
-    .service-block h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 8px
-    }
-
-    .service-block h3 .gradient-accent {
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .service-block .tag {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 4px;
-      background: rgba(112, 0, 255, 0.12);
-      color: #7000FF;
-      font-size: 11px;
-      margin-bottom: 10px;
-      letter-spacing: 1px
-    }
-
-    .service-block p {
-      color: rgba(255, 255, 255, 0.65);
-      line-height: 1.8;
-      margin-bottom: 12px;
-      font-size: 14px
-    }
-
-    .service-block ul {
-      list-style: none
-    }
-
-    .service-block ul li {
-      padding: 6px 0;
-      padding-left: 22px;
-      position: relative;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 13px
-    }
-
-    .service-block ul li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #7000FF;
-      font-weight: 700
-    }
-
-    .service-block img {
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      width: 100%;
-      height: auto;
-      transition: transform 0.3s ease
-    }
-
-    .service-block img:hover {
-      transform: scale(1.02)
     }
 
     /* ===== Platform ===== */
@@ -568,32 +245,7 @@
       line-height: 1.5
     }
 
-    /* ===== QC Section ===== */
-    .qc-header {
-      text-align: center;
-      margin-bottom: 48px
-    }
-
-    .qc-header h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 12px
-    }
-
-    .qc-header h2 .gradient-accent {
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .qc-header p {
-      color: rgba(255, 255, 255, 0.55);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 15px
-    }
-
+    /* ===== QC ===== */
     .qc-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -729,60 +381,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06)
     }
 
-    /* ===== Contact / CTA ===== */
-    .cta-banner {
-      text-align: center;
-      padding: 80px 0;
-      position: relative
-    }
-    .cta-wrapper {
-      position: relative;
-      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(112, 0, 255, 0.05) 0%, transparent 70%);
-      border-radius: 24px;
-      padding: 40px
-    }
-
-    .cta-banner h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 12px
-    }
-
-    .cta-banner p {
-      color: rgba(255, 255, 255, 0.55);
-      margin-bottom: 28px;
-      font-size: 15px
-    }
-
-    /* ===== Stats ===== */
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 40px
-    }
-
-    .stat-item {
-      text-align: center
-    }
-
-    .stat-num {
-      font-size: 36px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .stat-label {
-      color: rgba(155, 150, 176, 0.6);
-      font-size: 12px;
-      margin-top: 4px;
-      letter-spacing: 1px
-    }
-
     /* ===== Partners ===== */
     .partner-row {
       display: flex;
@@ -795,130 +393,38 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06)
     }
 
-    /* ===== Footer ===== */
-    .footer {
-      border-top: 1px solid rgba(112, 0, 255, 0.08);
-      padding: 48px 0 24px;
+    /* ===== CTA Glows ===== */
+    #contact {
       position: relative;
-      background: linear-gradient(180deg, transparent 0%, rgba(112, 0, 255, 0.03) 50%, rgba(15, 5, 40, 0.4) 100%)
+      overflow: hidden
     }
-    .footer::before {
+
+    #contact::before {
       content: '';
       position: absolute;
-      top: -60px; left: 0; right: 0;
-      height: 60px;
-      background: linear-gradient(180deg, transparent, rgba(112, 0, 255, 0.02));
-      pointer-events: none
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(112, 0, 255, 0.4) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0
     }
 
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 32px
-    }
-
-    .footer-brand .logo-text {
-      font-size: 17px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 10px;
-      display: block
-    }
-
-    .footer-brand p {
-      color: #9B96B0;
-      font-size: 13px;
-      line-height: 1.6;
-      max-width: 280px
-    }
-
-    .footer h4 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 14px;
-      color: #F4F0FF
-    }
-
-    .footer a {
-      display: block;
-      color: #9B96B0;
-      font-size: 13px;
-      padding: 3px 0;
-      transition: color 0.3s ease
-    }
-
-    .footer a:hover {
-      color: #b2a0ff
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px
-    }
-
-    .footer-bottom p {
-      color: #6B6680;
-      font-size: 12px
-    }
-
-    .footer-contact {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
-      flex-wrap: wrap
-    }
-
-    .footer-contact span {
-      color: #9B96B0;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      gap: 4px
-    }
-
-    /* ===== Chat Widget ===== */
-    .chat-widget {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999
-    }
-
-    .chat-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7000FF, #a855f7);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.4);
-      transition: all 0.3s ease
-    }
-
-    .chat-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(112, 0, 255, 0.5)
-    }
-
-    .chat-btn img {
-      width: 28px;
-      height: 28px;
-      filter: brightness(0) invert(1)
+    #contact::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: radial-gradient(ellipse 70% 100% at 50% 100%, rgba(112, 0, 255, 0.4) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0
     }
 
     /* ===== Responsive ===== */
-    @media(max-width:1024px) {
+    @media (max-width: 1024px) {
 
       .features-grid,
       .qc-grid {
@@ -936,48 +442,9 @@
       .blog-grid {
         grid-template-columns: 1fr
       }
-
-      .footer-inner {
-        grid-template-columns: repeat(3, 1fr)
-      }
-
-      .service-block {
-        grid-template-columns: 1fr;
-        text-align: center
-      }
-
-      .service-block.reverse {
-        direction: ltr
-      }
-
-      .service-block ul li {
-        padding-left: 0;
-        text-align: center
-      }
-
-      .service-block ul li::before {
-        position: static;
-        margin-right: 6px
-      }
-
-      .stats-row {
-        gap: 24px
-      }
     }
 
-    @media(max-width:768px) {
-      .nav-pill {
-        gap: 10px;
-        padding: 8px 16px;
-        flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .nav-pill a {
-        font-size: 12px;
-        padding: 3px 8px
-      }
-
+    @media (max-width: 768px) {
       .hero h1 {
         font-size: 28px
       }
@@ -999,25 +466,9 @@
         grid-template-columns: 1fr
       }
 
-      .section {
-        padding: 48px 0
-      }
-
-      .section-title {
-        font-size: 22px
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr
-      }
-
       .hero-cta {
         flex-direction: column;
         align-items: center
-      }
-
-      .stat-num {
-        font-size: 28px
       }
     }
   </style>
@@ -1025,17 +476,16 @@
 
 <body class="page">
 
-  <nav class="nav-wrapper">
+  <div class="nav-wrapper">
     <div class="nav-pill">
       <a href="index.html" class="active">首页</a>
-      <a href="about.html">关于我们</a>
       <a href="services.html">数据服务</a>
       <a href="solutions.html">解决方案</a>
       <a href="technology.html">技术与保障</a>
-      <a href="index.html#contact">联系我们</a>
+      <a href="about.html">关于我们</a>
+      <a href="contact.html">联系我们</a>
     </div>
-  </nav>
-
+  </div>
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -1044,7 +494,7 @@
       <h1><span class="gradient-text">智绘数据，标注未来</span></h1>
       <p>清珞未来致力于成为 AI 模型全生命周期的数据服务伙伴，提供高质量的数据标注与数据采集服务，为人工智能产业提供专业的训练数据支撑，助力客户高效研发 AI 模型，加速智能应用落地。</p>
       <div class="hero-cta">
-        <a href="index.html#contact" class="btn btn-primary">联系我们</a>
+        <a href="contact.html" class="btn btn-primary">联系我们</a>
       </div>
     </div>
   </section>
@@ -1097,7 +547,8 @@
             <li>服务于自动驾驶、人脸识别、医学影像分析等领域</li>
           </ul>
         </div>
-        <div><img src="assets/images/img_021.svg" alt="智能驾驶数据服务" loading="lazy"></div>
+        <div><img src="assets/images/img_021.svg" alt="智能驾驶数据服务"
+            style="max-height:300px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy"></div>
       </div>
       <div class="service-block reverse ql-reveal ql-d2">
         <div>
@@ -1110,7 +561,8 @@
             <li>支撑大模型优化迭代，提升模型泛化能力</li>
           </ul>
         </div>
-        <div><img src="assets/images/img_037.svg" alt="AI 大模型数据服务" loading="lazy"></div>
+        <div><img src="assets/images/img_037.svg" alt="AI 大模型数据服务" style="width:100%;height:auto;background:transparent"
+            loading="lazy"></div>
       </div>
       <div class="service-block ql-reveal ql-d3">
         <div>
@@ -1123,7 +575,8 @@
             <li>风格化图像生成与衍生开发数据支持</li>
           </ul>
         </div>
-        <div><img src="assets/images/img_072.svg" alt="AI 视频/动漫数据服务" loading="lazy"></div>
+        <div><img src="assets/images/img_072.svg" alt="AI 视频/动漫数据服务"
+            style="max-height:300px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy"></div>
       </div>
       <div class="service-block reverse ql-reveal ql-d4">
         <div>
@@ -1138,7 +591,8 @@
             <li>电商零售：商品分类、无人商店、推荐系统</li>
           </ul>
         </div>
-        <div><img src="assets/images/img_015.svg" alt="多行业数据解决方案" loading="lazy"></div>
+        <div><img src="assets/images/img_015.svg" alt="多行业数据解决方案"
+            style="max-height:300px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -1210,7 +664,7 @@
       </div>
       <div style="text-align:center;margin-top:32px">
         <a href="technology.html" class="btn btn-primary">了解更多</a>
-        <a href="index.html#contact" class="btn btn-outline" style="margin-left:12px">联系我们</a>
+        <a href="contact.html" class="btn btn-outline" style="margin-left:12px">联系我们</a>
       </div>
     </div>
   </section>
@@ -1343,20 +797,19 @@
 
   <section class="section" id="contact">
     <div class="container">
-      <div class="cta-wrapper"><div class="cta-banner ql-reveal">
-        <h2>智绘数据，标注未来</h2>
-        <p>清珞未来 — AI 数据服务全链路解决方案提供商</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-          <a href="index.html#contact" class="btn btn-primary">联系我们</a>
+      <div class="cta-wrapper">
+        <div class="cta-banner ql-reveal">
+          <h2>智绘数据，标注未来</h2>
+          <p>清珞未来 — AI 数据服务全链路解决方案提供商</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+            <a href="contact.html" class="btn btn-primary">联系我们</a>
+          </div>
         </div>
       </div>
-    </div>
   </section>
 
-  <div class="chat-widget">
-    <button class="chat-btn" onclick="alert('欢迎光临清珞未来官方网站！\n有什么可以帮您的？\n\n📞 400-XXX-XXXX\n✉️ contact@qingluoai.com')">
-      <img src="assets/images/img_051.svg" alt="在线咨询">
-    </button>
+  <div class="back-to-top" id="backToTop">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
   </div>
 
   <footer class="footer">
@@ -1396,8 +849,15 @@
           <h4>关于我们</h4>
           <a href="about.html">公司简介</a>
           <a href="about.html">核心团队</a>
-          <a href="technology.html">文化理念</a>
-          <a href="index.html#contact">联系我们</a>
+          <a href="about.html#culture">文化理念</a>
+          <a href="about.html#bases">基地分布</a>
+        </div>
+        <div>
+          <h4>联系我们</h4>
+          <a href="contact.html">在线咨询</a>
+          <a href="contact.html">商务合作</a>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">📞 400-XXX-XXXX</span>
+          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">✉️ contact@qingluoai.com</span>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1407,7 +867,16 @@
   </footer>
 
   <script>
-    (function () { function r() { var e = document.querySelectorAll('.ql-reveal'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+    (function () {function r() {var e = document.querySelectorAll('.ql-reveal'); if (!e.length) return; var obs = new IntersectionObserver(function (n) {n.forEach(function (t) {t.isIntersecting && (t.target.classList.add('show'))})}, {threshold: .15}); e.forEach(function (el) {obs.observe(el)})} document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3)})();
+
+    /* Back to top */
+    (function () {
+      var btn = document.getElementById('backToTop');
+      if (!btn) return;
+      var toggle = function () {btn.classList.toggle('show', window.scrollY > 400)};
+      window.addEventListener('scroll', toggle);
+      toggle();
+    })();
   </script>
 </body>
 
