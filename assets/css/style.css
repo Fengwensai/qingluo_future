@@ -82,8 +82,24 @@ a {
   z-index: 99999;
   display: flex;
   justify-content: center;
+  align-items: center;
   pointer-events: none;
-  gap: 8px
+  gap: 12px
+}
+
+.nav-logo {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease
+}
+.nav-logo:hover {
+  opacity: 0.8
+}
+.nav-logo img {
+  height: 32px;
+  width: auto;
+  display: block
 }
 
 .nav-pill {
@@ -479,6 +495,23 @@ a {
   margin-bottom: 32px
 }
 
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px
+}
+.footer-brand .footer-logo {
+  flex-shrink: 0
+}
+.footer-brand-text {
+  display: flex;
+  flex-direction: column
+}
+.footer-brand .footer-logo img {
+  height: 36px;
+  width: auto;
+  display: block
+}
 .footer-brand .logo-text {
   font-size: 17px;
   font-weight: 600;
@@ -782,6 +815,8 @@ html body.light p, html body.light li, html body.light span:not(.logo-text):not(
 html body.light .process-step .num { color: #7000FF }
 html body.light .btn-outline { border-color: rgba(112,0,255,0.3); color: #7000FF }
 html body.light .btn-outline:hover { background: rgba(112,0,255,0.1); border-color: #7000FF; color: #7000FF }
+html body.light .nav-logo img,
+html body.light .footer-logo img { filter: brightness(0.8) }
 html body.light .partner-track-inner img { opacity: 0.6 }
 html body.light .btn-primary { color: #fff } html body.light .btn-primary:hover { color: #fff }
 html body.light .cic-value a { color: #7000FF }
