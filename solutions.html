@@ -600,7 +600,7 @@
 
   <section class="section">
     <div class="container">
-      <div class="solution-card ql-reveal">
+      <div class="solution-card ql-reveal" style="align-items:flex-start">
         <div>
           <div class="icon">🚗</div><span class="tag">AUTONOMOUS DRIVING</span>
           <h3>智能驾驶数据解决方案</h3>
@@ -613,16 +613,18 @@
           </ul>
           <p style="margin-top:12px;color:rgba(112,0,255,0.8);font-size:13px"><strong>项目经验：</strong>曾服务吉利泊车点云、动态障碍物标注、阿里
             2D3D 融合端到端等项目。</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">L2-L4 级全覆盖</h3>
+              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">从基础 ADAS 到高阶自动驾驶，提供全栈数据标注能力</p>
+            </div>
+            <div class="card" style="padding:16px">
+              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">时空融合算法</h3>
+              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">实现高精度动态建模，适配城市复杂路况</p>
+            </div>
+          </div>
         </div>
-        <div><img src="assets/ppt_images/slide26_02.png" alt="智能驾驶" class="solution-img" loading="lazy">
-          <div class="highlight-box" style="margin-top:14px">
-            <h4>L2-L4 级全覆盖</h4>
-            <p>从基础 ADAS 到高阶自动驾驶，提供全栈数据标注能力</p>
-          </div>
-          <div class="highlight-box">
-            <h4>时空融合算法</h4>
-            <p>实现高精度动态建模，适配城市复杂路况</p>
-          </div>
+        <div><img src="assets/ppt_images/slide26_02.png" alt="智能驾驶" class="solution-img" style="max-height:400px;object-fit:contain;background:rgba(255,255,255,0.02)" loading="lazy">
           <p style="color:rgba(155,150,176,0.4);font-size:11px;text-align:center">曾服务吉利泊车点云、阿里 2D3D 融合等项目</p>
         </div>
       </div>
@@ -724,12 +726,28 @@
     <div class="container">
       <h2 class="section-title ql-reveal">业务全景与资源</h2>
       <p class="section-subtitle ql-reveal ql-d1">覆盖全行业、全模态的 AI 数据服务生态</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
-        <img src="assets/ppt_images/slide03_x15.jpg" alt="业务全景" class="clickable ql-reveal" loading="lazy">
-        <img src="assets/ppt_images/slide03_x16.jpg" alt="核心能力" class="clickable ql-reveal ql-d1" loading="lazy">
-        <img src="assets/ppt_images/slide03_x17.jpg" alt="技术布局" class="clickable ql-reveal ql-d2" loading="lazy">
-        <img src="assets/ppt_images/slide03_x18.jpg" alt="行业覆盖" class="clickable ql-reveal ql-d3" loading="lazy">
+      <style>
+        .biz-marquee { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%) }
+        .biz-marquee-inner { display: flex; gap: 24px; width: max-content; animation: bizScroll 20s linear infinite }
+        .biz-marquee.paused .biz-marquee-inner { animation-play-state: paused }
+        @keyframes bizScroll { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+        .biz-marquee-inner img { height: 200px; width: auto; flex-shrink: 0; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; cursor: pointer }
+        .biz-marquee-inner img:hover { opacity: 1; transform: scale(1.03) }
+      </style>
+      <div class="biz-marquee" id="bizMarquee" style="margin-top:16px">
+        <div class="biz-marquee-inner" id="bizTrack">
+          <img src="assets/ppt_images/slide03_x15.jpg" alt="业务全景" loading="lazy">
+          <img src="assets/ppt_images/slide03_x16.jpg" alt="核心能力" loading="lazy">
+          <img src="assets/ppt_images/slide03_x17.jpg" alt="技术布局" loading="lazy">
+          <img src="assets/ppt_images/slide03_x18.jpg" alt="行业覆盖" loading="lazy">
+          <!-- duplicated for seamless loop -->
+          <img src="assets/ppt_images/slide03_x15.jpg" alt="业务全景" loading="lazy">
+          <img src="assets/ppt_images/slide03_x16.jpg" alt="核心能力" loading="lazy">
+          <img src="assets/ppt_images/slide03_x17.jpg" alt="技术布局" loading="lazy">
+          <img src="assets/ppt_images/slide03_x18.jpg" alt="行业覆盖" loading="lazy">
+        </div>
       </div>
+      <script>(function(){var e=document.getElementById('bizMarquee');if(!e)return;e.onmouseenter=function(){e.classList.add('paused')};e.onmouseleave=function(){e.classList.remove('paused')}})();</script>
     </div>
   </section>
 
