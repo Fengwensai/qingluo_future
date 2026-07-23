@@ -8,6 +8,7 @@
   <meta name="description" content="河北清珞未来信息技术有限公司，AI数据服务全链路解决方案提供商，致力于提供数据标注、数据采集、大模型数据、内容审核等专业AI数据服务。">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/i18n.js"></script>
   <style>
     /* ===== Hero (index only) ===== */
     .hero {
@@ -522,6 +523,10 @@
       <a href="about.html">关于我们</a>
       <a href="contact.html">联系我们</a>
     </div>
+    <div class="toggle-group" id="toggles">
+      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
+      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
+    </div>
   </div>
   <section class="hero">
     <div class="hero-bg"></div>
@@ -571,8 +576,8 @@
 
   <section class="section section-alt" id="services">
     <div class="container">
-      <h2 class="section-title ql-reveal">核心业务板块</h2>
-      <p class="section-subtitle ql-reveal ql-d1">覆盖 AI 数据全链路，四大重点领域专项服务</p>
+      <h2 class="section-title ql-slide">核心业务板块</h2>
+      <p class="section-subtitle ql-slide ql-d1">覆盖 AI 数据全链路，四大重点领域专项服务</p>
       <div class="service-block ql-reveal ql-d1">
         <div>
           <span class="tag">智能驾驶</span>
@@ -636,7 +641,7 @@
 
   <section class="section section-glow" id="platform">
     <div class="container">
-      <div class="platform-header ql-reveal">
+      <div class="platform-header ql-scale">
         <h2><span class="gradient-accent">自研工具与平台</span></h2>
         <p>高效的数据生产工具链 — 采集、标注、协同全流程自研，赋能数据生产全链路</p>
       </div>
@@ -731,8 +736,8 @@
 
   <section class="section section-alt section-glow" id="solutions">
     <div class="container">
-      <h2 class="section-title ql-reveal">行业解决方案</h2>
-      <p class="section-subtitle ql-reveal ql-d1">针对不同行业定制 AI 数据解决方案，赋能五大核心行业</p>
+      <h2 class="section-title ql-slide">行业解决方案</h2>
+      <p class="section-subtitle ql-slide ql-d1">针对不同行业定制 AI 数据解决方案，赋能五大核心行业</p>
       <div class="solution-grid">
         <div class="solution-item ql-reveal ql-d1">
           <div class="solution-icon">🚗</div>
@@ -922,7 +927,7 @@
   </footer>
 
   <script>
-    (function () {function r() {var e = document.querySelectorAll('.ql-reveal'); if (!e.length) return; var obs = new IntersectionObserver(function (n) {n.forEach(function (t) {t.isIntersecting && (t.target.classList.add('show'))})}, {threshold: .15}); e.forEach(function (el) {obs.observe(el)})} document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3)})();
+    (function () {function r() {var e = document.querySelectorAll('.ql-reveal,.ql-slide,.ql-scale'); if (!e.length) return; var obs = new IntersectionObserver(function (n) {n.forEach(function (t) {t.isIntersecting && (t.target.classList.add('show'))})}, {threshold: .15}); e.forEach(function (el) {obs.observe(el)})} document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3)})();
 
     /* Back to top */
     (function () {
@@ -940,6 +945,22 @@
       el.onmouseenter = function () { el.classList.add('paused'); };
       el.onmouseleave = function () { el.classList.remove('paused'); };
     })();
+
+    /* Theme toggle */
+    var themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+      if (localStorage.getItem('theme') === 'light') { document.body.classList.add('light'); themeBtn.textContent = '☀️'; }
+      window.switchTheme = function () {
+        document.body.classList.toggle('light');
+        var isLight = document.body.classList.contains('light');
+        themeBtn.textContent = isLight ? '☀️' : '🌙';
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      };
+    }
+
+    /* Lang toggle */
+    
+    
   </script>
 </body>
 

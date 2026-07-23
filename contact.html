@@ -8,6 +8,7 @@
   <meta name="description" content="联系清珞未来 — AI数据服务全链路解决方案提供商，获取数据标注、数据采集、大模型数据等专业服务咨询。">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/i18n.js"></script>
   <style>
     *,
     *::before,
@@ -816,6 +817,10 @@
       <a href="about.html">关于我们</a>
       <a href="contact.html" class="active">联系我们</a>
     </div>
+    <div class="toggle-group" id="toggles">
+      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
+      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
+    </div>
   </nav>
   <!-- ===== Hero ===== -->
   <section class="hero">
@@ -1059,7 +1064,7 @@
   <script>
     (function () {
       function r() {
-        var e = document.querySelectorAll('.ql-reveal');
+        var e = document.querySelectorAll('.ql-reveal,.ql-slide,.ql-scale');
         if (!e.length) return;
         var obs = new IntersectionObserver(function (n) {
           n.forEach(function (t) {
@@ -1087,7 +1092,12 @@
       document.getElementById('formSuccess').classList.add('show');
       return false;
     }
-  </script>
+  
+    var themeBtn=document.getElementById('themeToggle');
+    if(themeBtn){var t=localStorage.getItem('theme');if(t==='light'){document.body.classList.add('light');themeBtn.textContent='☀️';}else{themeBtn.textContent='🌙';}
+    window.switchTheme=function(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');themeBtn.textContent=isLight?'☀️':'🌙';localStorage.setItem('theme',isLight?'light':'dark');};}
+    
+</script>
 </body>
 
 </html>

@@ -7,137 +7,9 @@
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/i18n.js"></script>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-      background: #030014;
-      color: #fff;
-      overflow-x: hidden;
-      line-height: 1.6
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    ::selection {
-      color: #fff;
-      background: #4a428b
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #030014
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #7000FF;
-      border-radius: 3px
-    }
-
-    .nav-wrapper {
-      position: fixed;
-      top: 5px;
-      left: 0;
-      right: 0;
-      z-index: 99999;
-      display: flex;
-      justify-content: center;
-      pointer-events: none
-    }
-
-    .nav-pill {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 10px 24px;
-      background: #0f0528;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 40px;
-      pointer-events: auto;
-      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.15)
-    }
-
-    .nav-pill a {
-      padding: 4px 12px;
-      color: rgba(244, 240, 255, 0.8);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      border-radius: 20px
-    }
-
-    .nav-pill a:hover,
-    .nav-pill a.active {
-      color: #fff;
-      background: rgba(112, 0, 255, 0.25)
-    }
-
-    .page {
-      animation: fadeIn 0.4s ease both
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    .section {
-      padding: 80px 0
-    }
-
-    .section-alt {
-      background: rgba(117, 73, 255, 0.02)
-    }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 600;
-      text-align: center;
-      color: #fff;
-      margin-bottom: 12px;
-      letter-spacing: 1px
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: rgba(255, 255, 255, 0.55);
-      font-size: 15px;
-      max-width: 650px;
-      margin: 0 auto 40px;
-      letter-spacing: 1px
-    }
-
-    .hero {
+.hero {
       min-height: 50vh;
       display: flex;
       align-items: center;
@@ -547,6 +419,10 @@
     <div class="nav-pill"><a href="index.html">首页</a><a href="services.html">数据服务</a><a
         href="solutions.html">解决方案</a><a href="technology.html" class="active">技术与保障</a><a
         href="about.html">关于我们</a><a href="contact.html">联系我们</a></div>
+    <div class="toggle-group" id="toggles">
+      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
+      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
+    </div>
   </div>
   <section class="hero">
     <div class="hero-bg"></div>
@@ -762,7 +638,7 @@
     </div>
   </footer>
 
-  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-slide,.ql-scale'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
 
     /* Back to top */
     (function () {
@@ -772,7 +648,12 @@
       window.addEventListener('scroll', toggle);
       toggle();
     })();
-  </script>
+  
+    var themeBtn=document.getElementById('themeToggle');
+    if(themeBtn){var t=localStorage.getItem('theme');if(t==='light'){document.body.classList.add('light');themeBtn.textContent='☀️';}else{themeBtn.textContent='🌙';}
+    window.switchTheme=function(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');themeBtn.textContent=isLight?'☀️':'🌙';localStorage.setItem('theme',isLight?'light':'dark');};}
+    
+</script>
 </body>
 
 </html>

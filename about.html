@@ -7,6 +7,7 @@
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/i18n.js"></script>
   <style>
     *,
     *::before,
@@ -665,6 +666,10 @@
       <a href="about.html" class="active">关于我们</a>
       <a href="contact.html">联系我们</a>
     </div>
+    <div class="toggle-group" id="toggles">
+      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
+      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
+    </div>
   </div>
 
   <section class="hero">
@@ -744,8 +749,8 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="section-title ql-reveal">核心团队</h2>
-      <p class="section-subtitle ql-reveal ql-d1">6年+行业经验，全链条专业人才体系</p>
+      <h2 class="section-title ql-scale">核心团队</h2>
+      <p class="section-subtitle ql-scale ql-d1">6年+行业经验，全链条专业人才体系</p>
       <div class="team-grid">
         <div class="team-card ql-reveal ql-d1">
           <div class="team-avatar">📋</div>
@@ -864,7 +869,8 @@
         .culture-marquee-inner { display:flex; gap:24px; width:max-content; animation:cultureScroll 20s linear infinite; will-change:transform }
         .culture-marquee.paused .culture-marquee-inner { animation-play-state:paused }
         @keyframes cultureScroll { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
-        .culture-marquee-inner img { height:300px; width:auto; flex-shrink:0; border-radius:12px; border:1px solid rgba(255,255,255,0.06); opacity:0.7; transition:opacity 0.3s ease; cursor:pointer }
+        .culture-marquee-inner img { height:300px; width:auto; flex-shrink:0; border-radius:12px; border:1px solid rgba(255,255,255,0.06); opacity:0.7; transition:opacity 0.3s ease, transform 0.3s ease; cursor:pointer }
+        .culture-marquee-inner img:hover { opacity:1; transform:scale(1.03) }
       </style>
       <div class="culture-marquee" id="cultureMarquee">
         <div class="culture-marquee-inner">
@@ -920,7 +926,7 @@
   </footer>
 
   <script>
-    (function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
+    (function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-reveal-clip,.ql-reveal-clip-h,.ql-slide,.ql-scale'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
 
     /* Back to top */
     (function () {
@@ -930,6 +936,11 @@
       window.addEventListener('scroll', toggle);
       toggle();
     })();
+
+    var themeBtn=document.getElementById('themeToggle');
+    if(themeBtn){var t=localStorage.getItem('theme');if(t==='light'){document.body.classList.add('light');themeBtn.textContent='☀️';}else{themeBtn.textContent='🌙';}
+    window.switchTheme=function(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');themeBtn.textContent=isLight?'☀️':'🌙';localStorage.setItem('theme',isLight?'light':'dark');};}
+    
   </script>
 </body>
 

@@ -14,3 +14,6 @@ desktop.ini
 
 # Misc
 *.log
+gen_*.py
+all_texts.txt
+i18n_dict.txt

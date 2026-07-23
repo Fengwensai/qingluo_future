@@ -15,12 +15,39 @@ html {
   scroll-behavior: smooth
 }
 
+:root {
+  --bg-primary: #0d0028;
+  --bg-secondary: rgba(255,255,255,0.02);
+  --bg-card: rgba(255,255,255,0.02);
+  --text-primary: #f0ecf5;
+  --text-secondary: rgba(240,236,245,0.55);
+  --text-muted: rgba(240,236,245,0.35);
+  --border-color: rgba(255,255,255,0.06);
+  --nav-bg: rgba(15,5,40,0.92);
+  --section-alt-bg: linear-gradient(180deg, rgba(117,73,255,0.035) 0%, transparent 50%);
+  --glow-color: rgba(112,0,255,0.08);
+}
+
+body.light {
+  --bg-primary: #f5f0ff;
+  --bg-secondary: rgba(0,0,0,0.02);
+  --bg-card: #ffffff;
+  --text-primary: #1a1035;
+  --text-secondary: rgba(26,16,53,0.55);
+  --text-muted: rgba(26,16,53,0.35);
+  --border-color: rgba(112,0,255,0.1);
+  --nav-bg: rgba(255,255,255,0.92);
+  --section-alt-bg: linear-gradient(180deg, rgba(117,73,255,0.05) 0%, transparent 50%);
+  --glow-color: rgba(112,0,255,0.06);
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-  background: #030014;
-  color: #fff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
-  line-height: 1.6
+  line-height: 1.6;
+  transition: background .3s ease, color .3s ease
 }
 
 a {
@@ -30,7 +57,7 @@ a {
 
 ::selection {
   color: #fff;
-  background: #4a428b
+  background: #7000FF
 }
 
 ::-webkit-scrollbar {
@@ -38,7 +65,7 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030014
+  background: #0d0028
 }
 
 ::-webkit-scrollbar-thumb {
@@ -55,7 +82,8 @@ a {
   z-index: 99999;
   display: flex;
   justify-content: center;
-  pointer-events: none
+  pointer-events: none;
+  gap: 8px
 }
 
 .nav-pill {
@@ -63,8 +91,8 @@ a {
   align-items: center;
   gap: 20px;
   padding: 10px 24px;
-  background: #0f0528;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--nav-bg);
+  border: 1px solid var(--border-color);
   border-radius: 40px;
   pointer-events: auto;
   box-shadow: 0 4px 20px rgba(112, 0, 255, 0.15)
@@ -72,7 +100,7 @@ a {
 
 .nav-pill a {
   padding: 4px 12px;
-  color: rgba(244, 240, 255, 0.8);
+  color: var(--text-secondary);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -83,8 +111,43 @@ a {
 
 .nav-pill a:hover,
 .nav-pill a.active {
-  color: #fff;
+  color: var(--text-primary);
   background: rgba(112, 0, 255, 0.25)
+}
+
+/* ===== Toggle Buttons ===== */
+.toggle-group {
+  display: flex;
+  gap: 4px;
+  pointer-events: auto;
+  align-items: center;
+  background: var(--nav-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 40px;
+  padding: 6px 8px
+}
+.toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1
+}
+.toggle-btn:hover {
+  background: rgba(112, 0, 255, 0.15);
+  color: var(--text-primary)
+}
+.toggle-btn.active {
+  background: rgba(112, 0, 255, 0.2);
+  color: #7000FF
 }
 
 /* ===== Page Animation ===== */
@@ -136,6 +199,28 @@ a {
 
 .ql-d6 {
   transition-delay: .6s
+}
+
+/* ===== Reveal: Slide from Left ===== */
+.ql-slide {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity .6s cubic-bezier(.25, .1, .25, 1), transform .6s cubic-bezier(.25, .1, .25, 1)
+}
+.ql-slide.show {
+  opacity: 1;
+  transform: translateX(0)
+}
+
+/* ===== Reveal: Scale In ===== */
+.ql-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity .5s cubic-bezier(.25, .1, .25, 1), transform .5s cubic-bezier(.25, .1, .25, 1)
+}
+.ql-scale.show {
+  opacity: 1;
+  transform: scale(1)
 }
 
 /* ===== Layout ===== */
@@ -587,3 +672,120 @@ a {
     font-size: 28px
   }
 }
+
+/* ===== Light Mode (high specificity to override inline CSS) ===== */
+html body.light,
+html body.light .page { background: #f5f0ff; color: #1a1035 }
+html body.light .section-title { color: #1a1035 }
+html body.light .section-subtitle { color: rgba(26,16,53,0.6) }
+html body.light .card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .card:hover { border-color: rgba(112,0,255,0.2) }
+html body.light .card h3,
+html body.light .card h4 { color: #1a1035 }
+html body.light .card p,
+html body.light .feature-card p,
+html body.light .solution-item p,
+html body.light .qc-card p { color: rgba(26,16,53,0.7) }
+html body.light .service-block { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .service-block p { color: rgba(26,16,53,0.7) }
+html body.light .service-block ul li { color: rgba(26,16,53,0.75) }
+html body.light .feature-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .feature-card h3 { color: #1a1035 }
+html body.light .feature-sub { color: rgba(26,16,53,0.5) !important }
+html body.light .solution-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .solution-card p { color: rgba(26,16,53,0.7) }
+html body.light .solution-card ul li { color: rgba(26,16,53,0.75) }
+html body.light .qc-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .qc-card h4 { color: #1a1035 }
+html body.light .highlight-box { background: rgba(112,0,255,0.03); border-color: rgba(112,0,255,0.08) }
+html body.light .highlight-box p { color: rgba(26,16,53,0.7) }
+html body.light .footer { background: linear-gradient(180deg, transparent 0%, rgba(112,0,255,0.02) 50%, #f0e8ff 100%) }
+html body.light .footer h4 { color: #1a1035 }
+html body.light .footer a { color: rgba(26,16,53,0.6) }
+html body.light .footer a:hover { color: #7000FF }
+html body.light .footer-brand p { color: rgba(26,16,53,0.6) }
+html body.light .footer-contact span { color: rgba(26,16,53,0.5) }
+html body.light .footer-bottom p { color: rgba(26,16,53,0.4) }
+html body.light .section-alt { background: linear-gradient(180deg, rgba(117,73,255,0.04) 0%, transparent 50%) }
+html body.light .nav-pill { background: rgba(255,255,255,0.9); border-color: rgba(112,0,255,0.1) }
+html body.light .nav-pill a { color: rgba(26,16,53,0.7) }
+html body.light .nav-pill a:hover,
+html body.light .nav-pill a.active { color: #fff; background: rgba(112,0,255,0.2) }
+html body.light .cta-banner h2 { color: #1a1035 }
+html body.light .cta-banner p { color: rgba(26,16,53,0.6) }
+html body.light .hero p { color: rgba(26,16,53,0.6) }
+html body.light .hero-tag { color: #7000FF; border-color: rgba(112,0,255,0.2); background: rgba(112,0,255,0.08) }
+html body.light .stat-label { color: rgba(26,16,53,0.5) }
+html body.light .text-muted { color: rgba(26,16,53,0.5) }
+html body.light .text-secondary { color: rgba(26,16,53,0.65) }
+html body.light ::-webkit-scrollbar-track { background: #f5f0ff }
+html body.light .partner-carousel { border-top-color: rgba(112,0,255,0.1) }
+html body.light .tag { color: #7000FF }
+html body.light .service-block .tag { color: #7000FF }
+html body.light .pfeature { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .pfeature h4 { color: #1a1035 }
+html body.light .pfeature p { color: rgba(26,16,53,0.65) }
+html body.light .pfeature:hover { background: rgba(112,0,255,0.03) }
+html body.light .platform-header p { color: rgba(26,16,53,0.6) }
+html body.light .blog-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .blog-card h4 { color: #1a1035 }
+html body.light .blog-meta { color: rgba(26,16,53,0.5); border-top-color: rgba(112,0,255,0.08) }
+html body.light .blog-tag { color: #7000FF }
+html body.light .solution-item { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .solution-item h4 { color: #1a1035 }
+html body.light .solution-icon { color: #1a1035 }
+html body.light .ind-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .ind-card h4 { color: #1a1035 }
+html body.light .ind-card p { color: rgba(26,16,53,0.65) }
+html body.light .process-step .num { background: rgba(112,0,255,0.1) !important; color: #7000FF }
+html body.light .process-step h4 { color: #1a1035 }
+html body.light .process-step p { color: rgba(26,16,53,0.6) }
+html body.light .team-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .team-card h4 { color: #1a1035 }
+html body.light .team-card p { color: rgba(26,16,53,0.65) }
+html body.light .base-item { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .base-item h4 { color: #1a1035 }
+html body.light .base-item p { color: rgba(26,16,53,0.65) }
+html body.light .base-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .base-card h4 { color: #1a1035 }
+html body.light .base-card p { color: rgba(26,16,53,0.65) }
+html body.light .base-card .base-city { color: #7000FF }
+html body.light .contact-info-card { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .contact-info-card h4 { color: #1a1035 }
+html body.light .contact-info-card p { color: rgba(26,16,53,0.65) }
+html body.light .contact-info-card .cic-value { color: #1a1035 }
+html body.light .contact-form-wrap { background: #fff; border-color: rgba(112,0,255,0.08) }
+html body.light .contact-form-wrap h3 { color: #1a1035 }
+html body.light .form-group label { color: rgba(26,16,53,0.75) }
+html body.light .form-group input,
+html body.light .form-group select,
+html body.light .form-group textarea { background: rgba(112,0,255,0.03); border-color: rgba(112,0,255,0.1); color: #1a1035 }
+html body.light .form-group input::placeholder,
+html body.light .form-group textarea::placeholder { color: rgba(26,16,53,0.35) }
+html body.light .form-tip { color: rgba(26,16,53,0.4) }
+html body.light .highlight-box h4 { color: #7000FF }
+html body.light .card-icon { background: rgba(112,0,255,0.08) }
+html body.light .feature-icon { background: rgba(112,0,255,0.08) }
+html body.light .pfeature-icon { background: rgba(112,0,255,0.08) }
+html body.light .cic-icon { background: rgba(112,0,255,0.08) }
+html body.light .partner-track-inner img { opacity: 0.5; filter: none }
+html body.light .partner-track-inner img:hover { opacity: 1 }
+html body.light .form-success h4 { color: #1a1035 }
+html body.light .form-success p { color: rgba(26,16,53,0.65) }
+html body.light .contact-hero-desc { color: rgba(26,16,53,0.6) }
+html body.light .hero h1 .gradient-text { background: linear-gradient(180deg, #1a1035 23%, rgba(26,16,53,0.7) 95%) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important }
+html body.light .card ul li { color: rgba(26,16,53,0.7) }
+html body.light .service-block ul li::before { color: #7000FF }
+html body.light .gradient-accent { background: linear-gradient(135deg, #7000FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text }
+html body.light .back-to-top button { color: #fff }
+html body.light p, html body.light li, html body.light span:not(.logo-text):not(.base-city) { color: inherit }
+html body.light .process-step .num { color: #7000FF }
+html body.light .btn-outline { border-color: rgba(112,0,255,0.3); color: #7000FF }
+html body.light .btn-outline:hover { background: rgba(112,0,255,0.1); border-color: #7000FF; color: #7000FF }
+html body.light .partner-track-inner img { opacity: 0.6 }
+html body.light .btn-primary { color: #fff } html body.light .btn-primary:hover { color: #fff }
+html body.light .cic-value a { color: #7000FF }
+html body.light .form-desc { color: rgba(26,16,53,0.6) }
+html body.light .team-avatar { color: #7000FF }
+html body.light .hero-tag { color: #7000FF }
+html body.light .section::before { background: linear-gradient(to right, transparent, rgba(112,0,255,0.1), transparent) }
