@@ -381,16 +381,53 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06)
     }
 
-    /* ===== Partners ===== */
-    .partner-row {
+    /* ===== Partners Marquee ===== */
+    .partner-carousel {
+      position: relative;
+      margin-top: 28px;
+      padding: 32px 0 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden
+    }
+    .partner-track {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06)
+      gap: 64px;
+      padding: 4px 0
+    }
+    .partner-track-wrap {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%)
+    }
+    .partner-track-inner {
+      display: flex;
+      gap: 64px;
+      width: -webkit-max-content;
+      width: max-content;
+      animation: partnerScroll 30s linear infinite
+    }
+    .partner-carousel.paused .partner-track-inner {
+      animation-play-state: paused
+    }
+    @keyframes partnerScroll {
+      0% { transform: translateX(0) }
+      100% { transform: translateX(-50%) }
+    }
+    .partner-track-inner img {
+      height: 76px;
+      width: auto;
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      border-radius: 8px;
+      filter: grayscale(0.2)
+    }
+    .partner-track-inner img:hover {
+      opacity: 1;
+      transform: scale(1.08);
+      filter: grayscale(0)
     }
 
     /* ===== CTA Glows ===== */
@@ -561,7 +598,7 @@
             <li>支撑大模型优化迭代，提升模型泛化能力</li>
           </ul>
         </div>
-        <div><img src="assets/images/img_037.svg" alt="AI 大模型数据服务" style="width:100%;height:auto;background:transparent"
+        <div><img src="assets/images/img_037.svg" alt="AI 大模型数据服务" style="width:402px;height:402px;background:transparent"
             loading="lazy"></div>
       </div>
       <div class="service-block ql-reveal ql-d3">
@@ -745,20 +782,38 @@
     <div class="container">
       <h2 class="section-title ql-reveal">合作伙伴</h2>
       <p class="section-subtitle ql-reveal ql-d1">与行业领先企业携手共建 AI 数据生态</p>
-      <div class="partner-row">
-        <img src="assets/images/img_065.svg" alt="合作伙伴" height="33" loading="lazy"
-          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
-          onmouseout="this.style.opacity=0.5">
-        <img src="assets/images/img_066.svg" alt="合作伙伴" height="33" loading="lazy"
-          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
-          onmouseout="this.style.opacity=0.5">
-        <img src="assets/images/img_018.svg" alt="合作伙伴" height="33" loading="lazy"
-          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
-          onmouseout="this.style.opacity=0.5">
-        <img src="assets/images/img_019.svg" alt="合作伙伴" height="33" loading="lazy"
-          style="opacity:0.5;transition:opacity 0.3s" onmouseover="this.style.opacity=1"
-          onmouseout="this.style.opacity=0.5">
+      <div class="partner-carousel" id="partnerCarousel">
+        <div class="partner-track-wrap">
+          <div class="partner-track">
+            <div class="partner-track-inner" id="partnerTrack">
+              <img src="assets/images/partners/partner-01.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-02.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-03.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-04.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-05.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-06.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-07.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-08.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-09.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-10.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-11.png" alt="合作伙伴">
+              <!-- duplicated for seamless loop -->
+              <img src="assets/images/partners/partner-01.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-02.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-03.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-04.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-05.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-06.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-07.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-08.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-09.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-10.png" alt="合作伙伴">
+              <img src="assets/images/partners/partner-11.png" alt="合作伙伴">
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -876,6 +931,14 @@
       var toggle = function () {btn.classList.toggle('show', window.scrollY > 400)};
       window.addEventListener('scroll', toggle);
       toggle();
+    })();
+
+    /* Partners marquee — pause on hover */
+    (function () {
+      var el = document.getElementById('partnerCarousel');
+      if (!el) return;
+      el.onmouseenter = function () { el.classList.add('paused'); };
+      el.onmouseleave = function () { el.classList.remove('paused'); };
     })();
   </script>
 </body>
