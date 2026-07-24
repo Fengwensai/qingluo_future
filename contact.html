@@ -7,21 +7,9 @@
   <title>联系我们 - 清珞未来</title>
   <meta name="description" content="联系清珞未来 — AI数据服务全链路解决方案提供商，获取数据标注、数据采集、大模型数据等专业服务咨询。">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
   <script src="assets/js/i18n.js"></script>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
       background: #030014;
@@ -51,68 +39,6 @@
     ::-webkit-scrollbar-thumb {
       background: #7000FF;
       border-radius: 3px
-    }
-
-    /* ===== Nav ===== */
-    .nav-wrapper {
-      position: fixed;
-      top: 5px;
-      left: 0;
-      right: 0;
-      z-index: 99999;
-      display: flex;
-      justify-content: center;
-      pointer-events: none
-    }
-
-    .nav-pill {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 10px 24px;
-      background: #0f0528;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 40px;
-      pointer-events: auto;
-      box-shadow: 0 4px 20px rgba(112, 0, 255, 0.15)
-    }
-
-    .nav-pill a {
-      padding: 4px 12px;
-      color: rgba(244, 240, 255, 0.8);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      border-radius: 20px
-    }
-
-    .nav-pill a:hover,
-    .nav-pill a.active {
-      color: #fff;
-      background: rgba(112, 0, 255, 0.25)
-    }
-
-    /* ===== Animations ===== */
-    .page {
-      animation: fadeIn 0.4s ease both
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    .ql-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .7s cubic-bezier(.25, .1, .25, 1), transform .7s cubic-bezier(.25, .1, .25, 1)
     }
 
     .ql-reveal.show {
@@ -636,21 +562,24 @@
     }
 
     .footer-brand .logo-text {
-      font-size: 17px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #8b5cf6, #c4b5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 10px;
-      display: block
+      display: block;
+      letter-spacing: 0.5px
     }
 
     .footer-brand p {
-      color: #9B96B0;
-      font-size: 13px;
+      color: #d4ccf0;
+      font-size: 15px;
+      font-weight: 500;
       line-height: 1.6;
-      max-width: 280px
+      max-width: 280px;
+      letter-spacing: 0.3px
     }
 
     .footer h4 {
@@ -806,25 +735,9 @@
   </style>
 </head>
 
-<body class="page">
+<body class="page" data-page="contact">
 
-  <nav class="nav-wrapper">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/logo-h.png" alt="清珞未来">
-    </a>
-    <div class="nav-pill">
-      <a href="index.html">首页</a>
-      <a href="services.html">数据服务</a>
-      <a href="solutions.html">解决方案</a>
-      <a href="technology.html">技术与保障</a>
-      <a href="about.html">关于我们</a>
-      <a href="contact.html" class="active">联系我们</a>
-    </div>
-    <div class="toggle-group" id="toggles">
-      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
-      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
-    </div>
-  </nav>
+  <div id="nav-placeholder"></div>
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-bg"></div>
@@ -1010,78 +923,10 @@
     <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="footer-logo"><a href="index.html"><img src="assets/images/logo-h.png" alt="清珞未来"></a></div>
-          <div class="footer-brand-text">
-          <span class="logo-text">清珞未来</span>
-          <p>智绘数据，标注未来<br>AI 数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p>
-          <div class="footer-contact">
-            <span>📞 400-XXX-XXXX</span>
-            <span>✉️ contact@qingluoai.com</span>
-            <span>📍 河北省石家庄市</span>
-          </div></div>
-        </div>
-        <div>
-          <h4>数据服务</h4>
-          <a href="services.html">数据标注服务</a>
-          <a href="services.html">数据采集服务</a>
-          <a href="services.html">大模型数据服务</a>
-          <a href="services.html">内容审核服务</a>
-        </div>
-        <div>
-          <h4>解决方案</h4>
-          <a href="solutions.html">智能驾驶</a>
-          <a href="solutions.html">大语言模型</a>
-          <a href="solutions.html">智慧医疗</a>
-          <a href="solutions.html">智慧安防</a>
-        </div>
-        <div>
-          <h4>技术与保障</h4>
-          <a href="technology.html">自研平台</a>
-          <a href="technology.html">SOP 流程</a>
-          <a href="technology.html">三级质控</a>
-          <a href="technology.html">项目经验</a>
-        </div>
-        <div>
-          <h4>关于我们</h4>
-          <a href="about.html">公司简介</a>
-          <a href="about.html">核心团队</a>
-          <a href="about.html#culture">文化理念</a>
-          <a href="about.html#bases">基地分布</a>
-        </div>
-        <div>
-          <h4>联系我们</h4>
-          <a href="contact.html">在线咨询</a>
-          <a href="contact.html">商务合作</a>
-          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">📞 400-XXX-XXXX</span>
-          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">✉️ contact@qingluoai.com</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
+  <script src="assets/js/include.js"></script>
   <script>
-    (function () {
-      function r() {
-        var e = document.querySelectorAll('.ql-reveal,.ql-slide,.ql-scale');
-        if (!e.length) return;
-        var obs = new IntersectionObserver(function (n) {
-          n.forEach(function (t) {
-            t.isIntersecting && (t.target.classList.add('show'))
-          })
-        }, { threshold: .15 });
-        e.forEach(function (el) { obs.observe(el) })
-      }
-      document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r();
-      setTimeout(r, 1e3)
-    })();
-
     /* Back to top */
     (function () {
       var btn = document.getElementById('backToTop');
@@ -1097,12 +942,7 @@
       document.getElementById('formSuccess').classList.add('show');
       return false;
     }
-  
-    var themeBtn=document.getElementById('themeToggle');
-    if(themeBtn){var t=localStorage.getItem('theme');if(t==='light'){document.body.classList.add('light');themeBtn.textContent='☀️';}else{themeBtn.textContent='🌙';}
-    window.switchTheme=function(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');themeBtn.textContent=isLight?'☀️':'🌙';localStorage.setItem('theme',isLight?'light':'dark');};}
-    
-</script>
+  </script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>清珞未来 - AI 数据服务全链路解决方案提供商</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
   <script src="assets/js/i18n.js"></script>
   <style>
 .hero {
@@ -311,21 +311,24 @@
     }
 
     .footer-brand .logo-text {
-      font-size: 17px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #7549ff, #b2a0ff);
+      font-size: 22px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #8b5cf6, #c4b5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 10px;
-      display: block
+      display: block;
+      letter-spacing: 0.5px
     }
 
     .footer-brand p {
-      color: #9B96B0;
-      font-size: 13px;
+      color: #d4ccf0;
+      font-size: 15px;
+      font-weight: 500;
       line-height: 1.6;
-      max-width: 280px
+      max-width: 280px;
+      letter-spacing: 0.3px
     }
 
     .footer h4 {
@@ -455,19 +458,8 @@
   </style>
 </head>
 
-<body class="page">
-  <div class="nav-wrapper">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/logo-h.png" alt="清珞未来">
-    </a>
-    <div class="nav-pill"><a href="index.html">首页</a><a href="services.html">数据服务</a><a
-        href="solutions.html" class="active">解决方案</a><a href="technology.html">技术与保障</a><a
-        href="about.html">关于我们</a><a href="contact.html">联系我们</a></div>
-    <div class="toggle-group" id="toggles">
-      <button class="toggle-btn" id="themeToggle" onclick="switchTheme()" title="切换主题">🌙</button>
-      <button class="toggle-btn" id="langToggle" onclick="switchLang()" title="切换语言">中</button>
-    </div>
-  </div>
+<body class="page" data-page="solutions">
+  <div id="nav-placeholder"></div>
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -492,14 +484,14 @@
           </ul>
           <p style="margin-top:12px;color:rgba(112,0,255,0.8);font-size:13px"><strong>项目经验：</strong>曾服务吉利泊车点云、动态障碍物标注、阿里
             2D3D 融合端到端等项目。</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
-            <div class="card" style="padding:16px">
-              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">L2-L4 级全覆盖</h3>
-              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">从基础 ADAS 到高阶自动驾驶，提供全栈数据标注能力</p>
+          <div class="sub-grid-2" style="margin-top:16px">
+            <div class="card card-sm">
+              <h3 class="card-sm-title">L2-L4 级全覆盖</h3>
+              <p class="card-sm-text">从基础 ADAS 到高阶自动驾驶，提供全栈数据标注能力</p>
             </div>
-            <div class="card" style="padding:16px">
-              <h3 style="font-size:14px;font-weight:600;color:#F4F0FF;margin-bottom:4px">时空融合算法</h3>
-              <p style="font-size:12px;color:rgba(155,150,176,0.8);line-height:1.7">实现高精度动态建模，适配城市复杂路况</p>
+            <div class="card card-sm">
+              <h3 class="card-sm-title">时空融合算法</h3>
+              <p class="card-sm-text">实现高精度动态建模，适配城市复杂路况</p>
             </div>
           </div>
         </div>
@@ -634,44 +626,10 @@
     <button onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand"><div class="footer-logo"><a href="index.html"><img src="assets/images/logo-h.png" alt="清珞未来"></a></div>
-          <div class="footer-brand-text"><span class="logo-text">清珞未来</span>
-          <p>AI数据服务全链路解决方案提供商<br>致力于为人工智能提供高质量的训练数据</p>
-        </div>
-        </div>
-        <div>
-          <h4>数据服务</h4><a href="services.html">数据标注服务</a><a href="services.html">数据采集服务</a><a
-            href="services.html">大模型数据服务</a><a href="services.html">内容审核服务</a>
-        </div>
-        <div>
-          <h4>解决方案</h4><a href="solutions.html">智能驾驶</a><a href="solutions.html">大语言模型</a><a
-            href="solutions.html">智慧医疗</a><a href="solutions.html">智慧安防</a>
-        </div>
-        <div>
-          <h4>技术与保障</h4><a href="technology.html">自研平台</a><a href="technology.html">SOP 流程</a><a
-            href="technology.html">三级质控</a><a href="technology.html">项目经验</a>
-        </div>
-        <div>
-          <h4>关于我们</h4><a href="about.html">公司简介</a><a href="about.html">核心团队</a><a href="about.html#culture">文化理念</a><a
-            href="about.html#bases">基地分布</a>
-        </div>
-        <div>
-          <h4>联系我们</h4><a href="contact.html">在线咨询</a><a href="contact.html">商务合作</a>
-          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">📞 400-XXX-XXXX</span>
-          <span style="display:block;color:#9B96B0;font-size:13px;padding:3px 0">✉️ contact@qingluoai.com</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 河北清珞未来信息技术有限公司 · All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script>(function () { function r() { var e = document.querySelectorAll('.ql-reveal,.ql-slide,.ql-scale'); if (!e.length) return; var obs = new IntersectionObserver(function (n) { n.forEach(function (t) { t.isIntersecting && (t.target.classList.add('show')) }) }, { threshold: .15 }); e.forEach(function (el) { obs.observe(el) }) } document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r(); setTimeout(r, 1e3) })();
-
+  <script src="assets/js/include.js"></script>
+  <script>
     /* Back to top */
     (function () {
       var btn = document.getElementById('backToTop');
@@ -680,12 +638,7 @@
       window.addEventListener('scroll', toggle);
       toggle();
     })();
-  
-    var themeBtn=document.getElementById('themeToggle');
-    if(themeBtn){var t=localStorage.getItem('theme');if(t==='light'){document.body.classList.add('light');themeBtn.textContent='☀️';}else{themeBtn.textContent='🌙';}
-    window.switchTheme=function(){document.body.classList.toggle('light');var isLight=document.body.classList.contains('light');themeBtn.textContent=isLight?'☀️':'🌙';localStorage.setItem('theme',isLight?'light':'dark');};}
-    
-</script>
+  </script>
 </body>
 
 </html>

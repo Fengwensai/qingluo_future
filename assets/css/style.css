@@ -88,6 +88,10 @@ a {
 }
 
 .nav-logo {
+  position: absolute;
+  left: 50px;
+  top: -8px;
+  bottom: 0;
   pointer-events: auto;
   display: flex;
   align-items: center;
@@ -97,16 +101,17 @@ a {
   opacity: 0.8
 }
 .nav-logo img {
-  height: 32px;
-  width: auto;
-  display: block
+  width: 40px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1)
 }
 
 .nav-pill {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 10px 24px;
+  gap: 24px;
+  padding: 12px 28px;
   background: var(--nav-bg);
   border: 1px solid var(--border-color);
   border-radius: 40px;
@@ -115,9 +120,9 @@ a {
 }
 
 .nav-pill a {
-  padding: 4px 12px;
+  padding: 5px 14px;
   color: var(--text-secondary);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -133,6 +138,8 @@ a {
 
 /* ===== Toggle Buttons ===== */
 .toggle-group {
+  position: absolute;
+  right: 50px;
   display: flex;
   gap: 4px;
   pointer-events: auto;
@@ -510,24 +517,28 @@ a {
 .footer-brand .footer-logo img {
   height: 36px;
   width: auto;
-  display: block
+  display: block;
+  filter: brightness(0) invert(1)
 }
 .footer-brand .logo-text {
-  font-size: 17px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #7549ff, #b2a0ff);
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8b5cf6, #c4b5fd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-  display: block
+  display: block;
+  letter-spacing: 0.5px
 }
 
 .footer-brand p {
-  color: #9B96B0;
-  font-size: 13px;
+  color: #d4ccf0;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1.6;
-  max-width: 280px
+  max-width: 280px;
+  letter-spacing: 0.3px
 }
 
 .footer h4 {
@@ -576,6 +587,140 @@ a {
   display: flex;
   align-items: center;
   gap: 4px
+}
+
+.footer .contact-info {
+  display: block;
+  color: #9B96B0;
+  font-size: 13px;
+  padding: 3px 0
+}
+
+/* ===== Tech & Utility Classes ===== */
+.sop-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 24px
+}
+
+.sop-step {
+  text-align: center;
+  padding: 12px 6px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  font-size: 12px
+}
+
+.sop-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(112,0,255,0.2);
+  color: #7000FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  font-weight: 700;
+  font-size: 11px
+}
+
+.tech-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px
+}
+
+.tech-img-card {
+  text-align: center
+}
+
+.tech-img-card img {
+  max-height: 360px;
+  object-fit: contain;
+  background: rgba(255,255,255,0.02)
+}
+
+.tech-img-caption {
+  margin-top: 10px;
+  color: rgba(155,150,176,0.7);
+  font-size: 13px;
+  line-height: 1.5
+}
+
+.img-bottom-wrap {
+  margin-top: 24px;
+  text-align: center
+}
+
+.img-bottom-wrap img {
+  max-width: 800px;
+  display: inline-block
+}
+
+.img-bottom-caption {
+  margin-top: 8px;
+  color: rgba(155,150,176,0.6);
+  font-size: 12px
+}
+
+.card-sm {
+  padding: 16px
+}
+
+.card-sm h3,
+.card-sm-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #F4F0FF;
+  margin-bottom: 4px
+}
+
+.card-sm p,
+.card-sm-text {
+  font-size: 12px;
+  color: rgba(155,150,176,0.8);
+  line-height: 1.7
+}
+
+.service-img-caption {
+  color: rgba(155,150,176,0.5);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 6px
+}
+
+.sub-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-content: start
+}
+
+body.light .sop-step {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(112,0,255,0.1)
+}
+
+body.light .sop-num {
+  background: rgba(112,0,255,0.1)
+}
+
+body.light .tech-img-card img {
+  background: #fff
+}
+
+body.light .card-sm h3,
+body.light .card-sm-title {
+  color: #1a1035
+}
+
+body.light .card-sm p,
+body.light .card-sm-text {
+  color: rgba(26,16,53,0.7)
 }
 
 /* ===== Back to Top ===== */
@@ -736,7 +881,10 @@ html body.light .footer { background: linear-gradient(180deg, transparent 0%, rg
 html body.light .footer h4 { color: #1a1035 }
 html body.light .footer a { color: rgba(26,16,53,0.6) }
 html body.light .footer a:hover { color: #7000FF }
-html body.light .footer-brand p { color: rgba(26,16,53,0.6) }
+html body.light .nav-logo img { filter: brightness(0) }
+html body.light .footer-logo img { filter: brightness(0) }
+html body.light .footer-brand p { color: rgba(60,30,120,0.85); font-weight: 500 }
+html body.light .footer .contact-info { color: rgba(26,16,53,0.6) }
 html body.light .footer-contact span { color: rgba(26,16,53,0.5) }
 html body.light .footer-bottom p { color: rgba(26,16,53,0.4) }
 html body.light .section-alt { background: linear-gradient(180deg, rgba(117,73,255,0.04) 0%, transparent 50%) }
@@ -815,8 +963,6 @@ html body.light p, html body.light li, html body.light span:not(.logo-text):not(
 html body.light .process-step .num { color: #7000FF }
 html body.light .btn-outline { border-color: rgba(112,0,255,0.3); color: #7000FF }
 html body.light .btn-outline:hover { background: rgba(112,0,255,0.1); border-color: #7000FF; color: #7000FF }
-html body.light .nav-logo img,
-html body.light .footer-logo img { filter: brightness(0.8) }
 html body.light .partner-track-inner img { opacity: 0.6 }
 html body.light .btn-primary { color: #fff } html body.light .btn-primary:hover { color: #fff }
 html body.light .cic-value a { color: #7000FF }
