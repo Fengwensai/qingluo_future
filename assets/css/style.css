@@ -792,63 +792,98 @@ body.light .card-sm-text {
 
 /* ===== Responsive: Tablet ===== */
 @media (max-width: 1024px) {
-  .service-block {
-    grid-template-columns: 1fr;
-    text-align: center
-  }
-
-  .service-block.reverse {
-    direction: ltr
-  }
-
-  .service-block ul li {
-    padding-left: 0;
-    text-align: center
-  }
-
-  .service-block ul li::before {
-    position: static;
-    margin-right: 6px
-  }
-
-  .footer-inner {
-    grid-template-columns: repeat(3, 1fr)
-  }
-
-  .stats-row {
-    gap: 24px
-  }
+  .features-grid { grid-template-columns: repeat(2, 1fr) }
+  .solution-grid { grid-template-columns: repeat(2, 1fr) }
+  .grid-4 { grid-template-columns: repeat(2, 1fr) }
+  .industries { grid-template-columns: repeat(3, 1fr) }
+  .playout { grid-template-columns: 1fr; gap: 28px }
+  .pfeatures { grid-template-columns: 1fr }
+  .service-block { grid-template-columns: 1fr; text-align: center }
+  .service-block.reverse { direction: ltr }
+  .service-block ul li { padding-left: 0; text-align: center }
+  .service-block ul li::before { position: static; margin-right: 6px }
+  .footer-inner { grid-template-columns: repeat(3, 1fr) }
+  .stats-row { gap: 24px }
+  .solution-card { flex-direction: column }
+  .solution-card.reverse { flex-direction: column }
+  .contact-layout { grid-template-columns: 1fr; gap: 32px }
+  .contact-info-grid { grid-template-columns: 1fr 1fr }
+  .tech-img-grid { grid-template-columns: 1fr 1fr }
+  .hero h1 { font-size: 36px }
+  .grid-3 { grid-template-columns: repeat(2, 1fr) }
+  .grid-2 { grid-template-columns: 1fr }
 }
 
 /* ===== Responsive: Mobile ===== */
 @media (max-width: 768px) {
-  .nav-pill {
-    gap: 10px;
-    padding: 8px 16px;
-    flex-wrap: wrap;
-    justify-content: center
-  }
+  .nav-pill { gap: 8px; padding: 6px 12px; flex-wrap: wrap; justify-content: center }
+  .nav-pill a { font-size: 11px; padding: 3px 6px }
+  .nav-logo { left: 16px }
+  .toggle-group { right: 16px; padding: 4px 6px }
+  .toggle-btn { width: 28px; height: 28px; font-size: 13px }
 
-  .nav-pill a {
-    font-size: 12px;
-    padding: 3px 8px
-  }
+  .section { padding: 40px 0 }
+  .section-title { font-size: 24px }
+  .section-subtitle { font-size: 14px; margin-bottom: 28px }
 
-  .section {
-    padding: 48px 0
-  }
+  .hero { min-height: auto; padding-top: 64px; padding-bottom: 40px }
+  .hero h1 { font-size: 28px; letter-spacing: 1px }
+  .hero p { font-size: 14px }
+  .hero-tag { font-size: 12px; margin-bottom: 14px }
 
-  .section-title {
-    font-size: 22px
-  }
+  .features-grid { grid-template-columns: 1fr; gap: 16px }
+  .solution-grid { grid-template-columns: 1fr; gap: 12px }
+  .grid-4 { grid-template-columns: 1fr }
+  .grid-3 { grid-template-columns: 1fr }
+  .grid-2 { grid-template-columns: 1fr; gap: 16px }
+  .industries { grid-template-columns: repeat(2, 1fr); gap: 12px }
+  .qc-grid { grid-template-columns: 1fr; gap: 16px }
+  .stats-row { flex-wrap: wrap; gap: 16px }
+  .stat-item { flex: 1 1 45% }
+  .stat-num { font-size: 28px }
 
-  .footer-inner {
-    grid-template-columns: 1fr
-  }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px }
+  .footer-brand p { max-width: 100% }
+  .footer .contact-info { font-size: 12px }
 
-  .stat-num {
-    font-size: 28px
-  }
+  .platform-header h2 { font-size: 28px }
+  .pfeatures { gap: 12px }
+  .pfeature { padding: 14px }
+  .feature-card { padding: 24px 16px }
+
+  .solution-card { padding: 24px; gap: 20px }
+  .solution-card ul { grid-template-columns: 1fr }
+  .industries .ind-card { padding: 14px 10px }
+  .hero-cta { flex-direction: column; align-items: center }
+  .hero-cta .btn { width: 100%; max-width: 280px; justify-content: center }
+  .img-grid-2 { grid-template-columns: 1fr }
+
+  .service-block { gap: 20px; padding: 24px }
+  .sub-grid-2 { grid-template-columns: 1fr }
+  .card-sm { padding: 12px }
+
+  .tech-img-grid { grid-template-columns: 1fr; gap: 12px }
+  .tech-img-card img { max-height: 240px }
+  .sop-grid { grid-template-columns: repeat(4, 1fr); gap: 6px }
+  .sop-step { font-size: 11px; padding: 8px 4px }
+
+  .contact-info-grid { grid-template-columns: 1fr }
+  .contact-layout { gap: 24px }
+  .contact-info-card { padding: 16px }
+  .form-row { grid-template-columns: 1fr }
+
+  .blog-grid { grid-template-columns: 1fr; gap: 16px }
+  .cta-banner { padding: 32px 20px }
+  .cta-banner h2 { font-size: 22px }
+  .cta-banner p { font-size: 13px }
+  .back-to-top { bottom: 16px; right: 16px }
+  .back-to-top button { width: 40px; height: 40px; font-size: 18px }
+
+  .platform-visual img { max-height: 250px; object-fit: cover }
+  .service-img-caption { font-size: 11px }
+
+  body { overflow-x: hidden }
+  .page { overflow-x: hidden }
 }
 
 /* ===== Light Mode (high specificity to override inline CSS) ===== */
